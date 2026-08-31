@@ -1,0 +1,83 @@
+=== blog__guia-prtico-para-coloristas-passo-a-passo-para-color-grading-de-projetos ===
+TITLE: Guia Prático para Coloristas: Passo-a-Passo para Color Grading de Projetos — Vertigo Color
+OG:TITLE: Guia Prático para Coloristas: Passo-a-Passo para Color Grading de Projetos — Vertigo Color
+OG:DESCRIPTION: Desde o começo, já quero deixar claro que existe sim um passo-a-passo que você pode seguir em praticamente TODOS os projetos que é a base do que Hollywood faz, e que vai te permitir ser criativo, manter a consistência, qualidade de trabalho, e a efetividade durante o Color Grading (e talvez, com sor
+OG:IMAGE: http://static1.squarespace.com/static/627132feb555fb16cce33d60/t/65c3784f3a47fd0ae42878cc/1707309138842/mini-panel-md.jpg?format=1500w
+
+0
+Pular para conteúdo
+Home
+Artists
+Contact
+Learning
+About
+Abrir menuFechar menu
+Home
+Artists
+Contact
+Learning
+About
+Abrir menuFechar menu
+Home
+Artists
+Contact
+Learning
+About
+Guia Prático para Coloristas: Passo-a-Passo para Color Grading de Projetos
+7 de fev.
+Escrito por Germano Michelon Santos
+Desde o começo, já quero deixar claro que existe sim um passo-a-passo que você pode seguir em praticamente TODOS os projetos que é a base do que Hollywood faz, e que vai te permitir ser criativo, manter a consistência, qualidade de trabalho, e a efetividade durante o Color Grading (e talvez, com sorte, também desenvolver um estilo próprio).
+Então, já sugiro que você salve nos favoritos essa página para que você possa consultar ao longo de cada projeto até se acostumar e conseguir fazer naturalmente, sem o meu auxílio.
+Esse guia é pensado para o Davinci Resolve, mas se você têm domínio sobre outras aplicações, tenho certeza de que vai conseguir traduzir tranquilamente os conhecimentos daqui.
+1. Organizar a mídia
+O primeiro passo é simples: precisamos organizar a mídia dentro do software de nossa escolha para a colorização, depois de importadas. Estou assumindo que você deu conta de todas as etapas do recebimento desses arquivos do editor.
+Esse é, honestamente, o momento menos importante de todos, e portanto não tenho tantas dicas aqui. Dito isso, vai sim ser necessário completar esse passo de uma maneira ou outra.
+Para fazer a organização, sugiro que você jogue os arquivos crus todos dentro de uma pasta com justamente esse nome, e que as timelines fiquem fora dessa pasta. Dessa maneira, tudo fica mais fácil de ser organizado.
+Fazer do jeito que você já está acostumado pode ser uma ótima alternativa também. Talvez você já é melhor do que eu nessa etapa, ou talvez mudar de processo de organização de mídias não seja produtivo se você já está habituado com um.
+2. Criar a Timeline
+O próximo passo é criar a Timeline. Lembre-se que em alguns softwares (especialmente o Davinci Resolve), não é possível mudar o FPS depois de já ter definido no momento da criação. Portanto, tenha a certeza de que essa etapa será cumprida corretamente.
+Em relação à resolução, ela pode ser alterada à qualquer momento. Então, de começo, sugiro que você crie a Timeline com uma que não vai impedir que você faça o seu trabalho corretamente, mas também não é necessário que seja a resolução do sensor da câmera. Isso porque você vai ficar limitado em relação ao desempenho do seu computador sem necessidade. (Fique tranquilo. Nos momentos necessários, a resolução vai ser modificada).
+Obviamente, também vai ser necessário que você coloque todos os arquivos nessa timeline, se é que já não a criou com base neles.
+Aqui também estou assumindo que você deu conta do processo de divisão do arquivo ProRes, DNxHR ou qualquer que seja o codec. Ou ainda, que deu conta de importar o XML/EDL se for necessário.
+3. Separar os clips em grupos
+Basicamente esse passo se refere à preparar a possibilidade de fazer correções únicas para uma cena toda ou para todos os cortes de um modelo de câmera. Então, se você está em algum outro software que não o Davinci Resolve, você vai precisar encontrar o equivalente à ferramenta de Grupos.
+No Davinci Resolve, é agora o momento que você precisa separar todos os cortes do filme em grupos para facilitar a colorização. A melhor forma para fazer isso é por modelo de câmera (mais precisamente espaço de cor e gamma de entrada), ou por cena.
+4. Fazer o Gerenciamento de Cor
+Esse é o momento que se faz necessário fazer o gerenciamento de cores. Portanto, você precisa escolher se vai usar um espaço de cor e gamma intermediários, ou se vai preferir trabalhar somente com os da câmera e o de saída. Se decidir seguir pelo caminho do intermediário, você precisa decidir qual.
+E, em seguida, colocar em prática esse Gerenciamento de Cores.
+Antes do Look, pode ser que você queira fazer algum ajuste de exposição básico aqui também, na cena toda, caso as imagens estejam com uma exposição muito diferente do objetivo desejado. No Davinci Resolve, eu sugiro que esse ajuste fique na árvore de nodes Group Pre-Clip.
+5. Criar o Look
+ANTES DE FAZER O BALANCE é necessário fazer o Look, ou, como eu gosto de chamar: a transformação criativa de nível global.
+Isso porque, diferente dos outros transformadores que usamos até agora, essa vai ser uma transformação puramente criativa, e que vai ser pensada para todo o universo do projeto. Ou seja, ela precisa afetar TODOS os cortes do nosso projeto. No Davinci Resolve, normalmente fazemos isso na árvore de Nodes da Timeline.
+A única exceção é se vamos ter universos diferentes ao longo do projeto: flashbacks, filmes de multiverso, mudanças de épocas ou planetas. Nesse caso, vai ser necessário agrupar as filmagens por universo para que seja possível fazer o Look por grupo.
+Um look consiste de pelo menos 3 etapas: Contraste Criativo, Ajuste de Cores e Textura. No entanto, o Look também pode ser apoiado por qualquer que seja a ferramenta de sua escolha, que vai permitir com que o projeto atinja o resultado desejado.
+É nesse momento que você têm liberdade para emular qualquer que seja o modelo de filme, usar aquele Plugin ou OpenFX que sempre quis testar. A criatividade te permite fazer qualquer coisa.
+E também, logo antes de trabalhar na textura, é necessário que você volte a timeline para a maior resolução que o conteúdo em questão vai ser distribuído. E ter um monitor com essa mesma resolução também vai te permitir visualizar a textura da mesma forma que o expectador. Logo depois que você finalizar todo o trabalho de textura, é possível voltar para a resolução de trabalho.
+6. Ajuste básico de exposição e Balance por cena
+A partir do momento que o look já está no lugar e aprovado pelo cliente, é hora de fazer o ajuste básico da cena. Seguidamente, por exemplo, a exposição não estava exatamente no lugar quando o cinematógrafo gravou. É provável também que a imagem não estava 100% balanceada, mesmo que o balanço de branco tenha sido selecionado corretamente na câmera.
+Portanto, agora é a hora de corrigir ambas essas características da imagem no Group Pre-Clip. Tudo isso vai ocorrer enquanto você olha para essa imagem passando pelo look.
+7 e 8. Primeira passada de Shot Matching ou Ajuste Criativo de Cena
+É provável que algumas cenas exijam algum trabalho criativo específico delas. Talvez um preto-e-branco. Talvez um nível de saturação diferente. Talvez até um Glow ou Bloom nos Highlights Esse passo normalmente está na árvore de nodes do grupo pós-clip.
+Depois que a criatividade toda praticamente acabou, é hora de fazer a primeira passada de Shot Matching. Eu sugiro fortemente que essa seja focada em ajustes de exposição e contraste, e que não seja focada em cores. O olho humano é mais sensível à mudanças de luminância do que de cor, e portanto a primeira tem prioridade.
+9. Shot Matching
+Agora sim você pode para passar por todos os takes e ajustar tudo o que parece não combinar, e deveria combinar. 90% do trabalho de matching é puro offset.
+Dito isso, é mais importante que cada take esteja bonito, do que combine. Se for necessário fazer algum ficar levemente mais frio ou mais magenta para ficar mais bonito, se permita fazer isso. O expectador está vendo um take atrás do outro e não ambos ao mesmo tempo. É difícil que consiga comparar.
+Esses ajustes ocorrem na árvore de nodes do clip.
+10. Ajustes locais clip à clip.
+A partir desse momento o seu projeto já DEVE estar bonito, independente dos ajustes locais clip-à-clip.
+Outros ajustes que ocorrem clip à clip são as janelas, qualifiers e tratamento de pele. Esses são dificilmente aproveitados de um corte para outro. Portanto, precisam de um alto cuidado, porque podem quebrar muito facilmente ao longo de vários clips.
+Caso você queira trabalhar na textura da pele, talvez também seja importante fazer isso olhando para a imagem na resolução que vai ser distribuida.
+É importante destacar também que esses são de longe os ajustes que mais dão trabalho e que menos dão resultado. Portanto, os aplique apenas em projetos que merecem esse carinho, ou em projetos que você foi pago de maneira equivalente.
+11. Entrega
+Agora chegou o momento da entrega, e, novamente, vamos mudar a resolução. Agora para a mesma que você recebeu.
+Aqui também, é provável que você precise aplicar os seus conhecimentos sobre codecs e conteiners, e que confira se está tudo bem com os seus ajustes, especialmente a textura, assistindo.
+Para alguns, essas instruções podem parecer diferentes demais do que costumam fazer. No entanto, como um profissional da cor que vive disso à pouco mais de meia década, e que pôde estudar com os talentos de mais alto nível da cor mundial, tenho convicção de que se trata de conhecimento útil.
+Caso você queira receber mais conteúdo como esse, sugiro que deixe seu e-mail para eu te enviar conteúdos desse mesmo nível. Para fazer isso, toque no botão abaixo:
+Receba esses conteúdos no e-mail
+Germano Michelon Santos
+Anterior
+Além da Letra: Criando VIDEOCLIPES que Ressonam Profundamente
+Próximo
+Freelancer: Você não precisa ser o melhor.
+Vertigo Color.
+Pay us with Crypto

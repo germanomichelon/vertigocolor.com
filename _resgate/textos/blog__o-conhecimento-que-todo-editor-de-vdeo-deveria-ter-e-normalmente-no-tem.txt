@@ -1,0 +1,49 @@
+=== blog__o-conhecimento-que-todo-editor-de-vdeo-deveria-ter-e-normalmente-no-tem ===
+TITLE: O conhecimento que todo EDITOR DE VÍDEO deveria ter (e normalmente não tem) — Vertigo Color
+OG:TITLE: O conhecimento que todo EDITOR DE VÍDEO deveria ter (e normalmente não tem) — Vertigo Color
+OG:DESCRIPTION: Como Colorista profissional, é comum que um dos papéis que eu mais tenho contato ao longo de uma pós-produção seja o Editor. Ao longo desses anos todos, percebi que a imensa maioria deles, se não todos, têm uma deficiência enorme quanto à alguns conhecimentos técnicos.  Deficiência essa que dificult
+OG:IMAGE: http://static1.squarespace.com/static/627132feb555fb16cce33d60/65495b108dbeea7bd4c8e85e/6585e198a253c661b280e562/1703272974104/Capa-1140x683.jpg?format=1500w
+
+0
+Pular para conteúdo
+Home
+Artists
+Contact
+Learning
+About
+Abrir menuFechar menu
+Home
+Artists
+Contact
+Learning
+About
+Abrir menuFechar menu
+Home
+Artists
+Contact
+Learning
+About
+O conhecimento que todo EDITOR DE VÍDEO deveria ter (e normalmente não tem)
+22 de dez.
+Escrito por Germano Michelon Santos
+Como Colorista profissional, é comum que um dos papéis que eu mais tenho contato ao longo de uma pós-produção seja o Editor. Ao longo desses anos todos, percebi que a imensa maioria deles, se não todos, têm uma deficiência enorme quanto à alguns conhecimentos técnicos.
+Deficiência essa que dificulta a comunicação entre membros da equipe. Imagine, afinal, você, editor, não conseguir saber como renderizar os arquivos para o colorista, ou não saber como encaixar na sua timeline a trilha sonora proveniente do estúdio que mixou o áudio. Ou pior ainda, não saber em qual espaço de cor deve enviar os arquivos para o estúdio de VFX.
+Conhecimentos esses que são o mais básico que um Colorista deve saber, e portanto, que são os primeiros módulos do meu curso, o Profissão Colorista. (Inclusive, é de lá que devo tirar a imensa maioria dos conhecimentos desse texto).
+Sugiro que você, editor, anote os títulos dos conhecimentos que eu vou te passar aqui, e que procure se aprofundar verdadeiramente neles. Dessa maneira, te fazendo um editor superior em conhecimento técnico no mercado, quando comparamos aos outros.
+Codecs
+O primeiro conhecimento que é necessário que você saiba é o que são CODECS, e as suas diferenças para RAW e Conteiners. Seguidamente percebo editores do mais alto nível de capacidade artística invertendo a importância que CODECS e Conteiners têm.
+No entanto, não recomendo que você dê um Google diretamente procurando por CODECS. Na verdade, alguns conhecimentos prévios são necessários na minha opinião: Chroma Subsampling e Profundidade de Bits. Tudo fica mais natural de aprender quando na ordem certa. Portanto, sugiro fortemente que corra atrás desses dois últimos conhecimentos, para só depois se preocupar com Codecs, RAW e Conteiners.
+Gerenciamento de Espaços de Cor
+Mesmo sabendo que o colorista faz o papel do especialista em cores, ainda é necessário que, de maneira básica, o montador saiba o mínimo sobre o Gerenciamento de Espaços de Cor.
+Inclusive, muito como os CODECS, esse conteúdo também vêm com alguns conhecimentos prévios atrelados à ele: O que são Espaços de Cor, o que são Gammas e como transformar Espaços de Cor e Gammas em qualquer que seja o NLE de escolha desse profissional.
+NLEs são Non-linear Editors, ou Editores não-lineares. Basicamente programas de edição.
+Há alguns dias eu gravei um podcast falando sobre o mesmo assunto, e que pode ser complementar a esse texto, e você o encontra aqui: https://podcasters.spotify.com/pod/show/germano-michelon-santos/episodes/O-conhecimento-que-todo-EDITOR-DE-VDEO-deveria-ter-e-normalmente-no-tem-e2divdl/a-aap5qfa
+Agora que você está munido de uma lista de tarefas do que precisa aprender, e em qual ordem, é hora de colocar em prática.
+Valeu!
+Germano Michelon Santos
+Anterior
+Um erro sobre dinheiro que muito freelancer comete
+Próximo
+Como ser um Freelancer bem-sucedido mesmo sendo TÍMIDO
+Vertigo Color.
+Pay us with Crypto
