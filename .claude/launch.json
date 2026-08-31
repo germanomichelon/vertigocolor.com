@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site-vertigo",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "cd '/Users/germanomichelon/Desktop/Site Vertigo/docs' && exec python3 -m http.server 8734"],
+      "port": 8734
+    }
+  ]
+}
