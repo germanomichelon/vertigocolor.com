@@ -83,9 +83,10 @@ h1, h2, h3 { font-weight: 800; text-transform: uppercase; line-height: 0.95; let
   transition: background 0.3s, box-shadow 0.3s;
 }
 .nav.solida { background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(10px); }
-.nav-marca { display: flex; align-items: center; gap: 12px; }
-.nav-marca img { height: 30px; width: auto; }
-.nav-marca span { font-weight: 800; font-stretch: 115%; letter-spacing: 0.04em; font-size: 1.02rem; text-transform: uppercase; }
+.nav-marca { display: flex; align-items: center; }
+.nav-marca img { height: 58px; width: auto; transition: opacity 0.25s, height 0.3s; }
+.nav.solida .nav-marca img { height: 46px; }
+.nav-marca:hover img { opacity: 0.7; }
 .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.6vw, 36px); }
 .nav-links a { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--b70); transition: color 0.25s; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--branco); }
@@ -294,9 +295,8 @@ h1, h2, h3 { font-weight: 800; text-transform: uppercase; line-height: 0.95; let
 /* ---------- rodapé ---------- */
 .rodape { border-top: 1px solid var(--b12); padding: clamp(40px, 6vw, 72px) var(--pad) 34px; }
 .rodape-grade { display: flex; flex-wrap: wrap; gap: 34px; justify-content: space-between; align-items: flex-start; max-width: 1360px; margin: 0 auto; }
-.rodape-marca { display: flex; align-items: center; gap: 14px; }
-.rodape-marca img { height: 44px; }
-.rodape-marca strong { font-weight: 800; font-stretch: 115%; text-transform: uppercase; font-size: 1.15rem; }
+.rodape-marca { display: flex; align-items: center; }
+.rodape-marca img { width: 150px; height: auto; }
 .rodape p, .rodape a { font-size: 0.88rem; color: var(--b70); }
 .rodape a:hover { color: var(--branco); }
 .rodape .crypto { display: inline-block; margin-top: 10px; border: 1px solid var(--b25); border-radius: 99px; padding: 7px 15px; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; }
@@ -306,9 +306,8 @@ h1, h2, h3 { font-weight: 800; text-transform: uppercase; line-height: 0.95; let
 /* ---------- portão de idioma (index raiz) ---------- */
 .portao { min-height: 100svh; display: flex; flex-direction: column; }
 .portao-topo { text-align: center; padding: clamp(36px, 7vh, 80px) 20px 10px; }
-.portao-topo img.simbolo { height: clamp(70px, 12vh, 120px); margin: 0 auto 20px; }
-.portao-topo .marca { font-weight: 850; font-stretch: 115%; font-size: clamp(1.35rem, 6vw, 2.8rem); letter-spacing: 0.06em; text-transform: uppercase; }
-.portao-pergunta { text-align: center; margin: 18px auto 6px; font-size: clamp(1rem, 2vw, 1.3rem); color: var(--b70); }
+.portao-topo img.logo { width: clamp(190px, 26vh, 330px); height: auto; margin: 0 auto; }
+.portao-pergunta { text-align: center; margin: 22px auto 6px; font-size: clamp(1rem, 2vw, 1.3rem); color: var(--b70); }
 .portao-opcoes { flex: 1; display: grid; grid-template-rows: 1fr 1fr; }
 @media (min-width: 760px) { .portao-opcoes { grid-template-rows: none; grid-template-columns: 1fr 1fr; } }
 .portao-opcao {
