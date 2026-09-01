@@ -23,8 +23,8 @@ EQUIPE = [
         "cargo": {"pt": "Colorista sênior e fundador", "en": "Senior Colorist & Founder"},
         "foto": "equipe/germano.jpg",
         "bio": {
-            "pt": "Fundador da Vertigo Color, coloriu projetos para marcas como Nike, Mercedes-Benz, Michelin e Natura, além de videoclipes com milhões de visualizações. Atende do estúdio em São Marcos (RS) clientes do Brasil, dos Estados Unidos e da Europa.",
-            "en": "Founder of Vertigo Color, Germano has graded work for brands like Nike, Mercedes-Benz, Michelin and Natura, plus music videos with millions of views. From the studio in southern Brazil he serves clients across Brazil, the US and Europe.",
+            "pt": "Fundador da Vertigo Color, coloriu projetos para marcas como Nike, Mercedes-Benz, Michelin e Natura, além de videoclipes com milhões de visualizações. Atende do estúdio em São Marcos (RS) clientes do Brasil, dos Estados Unidos, da Europa, da Arábia Saudita e da Índia.",
+            "en": "Founder of Vertigo Color, Germano has graded work for brands like Nike, Mercedes-Benz, Michelin and Natura, plus music videos with millions of views. From the studio in southern Brazil he serves clients across Brazil, the United States, Europe, Saudi Arabia and India.",
         },
     },
     {
@@ -304,18 +304,18 @@ SOBRE = {
     "pt": [
         "A Vertigo Color nasceu de uma obsessão singular pela imagem cinematográfica. Quando comecei a produzir meus próprios vídeos, a complexidade de luz, som e equipamento parecia infinita — mas o color grading fez sentido imediatamente. Incentivado por mentores como Filippo Cinotti, que provaram que uma carreira dedicada à cor era possível, investi tudo o que tinha em dominar o ofício.",
         "A virada veio ao unir forças com um sócio que trazia mais de uma década de pós-produção — e o nome Vertigo Color junto. Combinando dedicação obsessiva com experiência técnica profunda, construímos uma casa de pós-produção inteiramente em torno da arte e da ciência da cor.",
-        "Hoje, a Vertigo é um dos estúdios de color grading mais procurados do Brasil — com foco global. Operar a partir do Sul do país nos permite oferecer aos mercados norte-americano e europeu uma vantagem enorme: finalização de alto nível a um custo altamente competitivo, sem abrir mão de nenhum rigor.",
+        "Hoje, a Vertigo é um dos estúdios de color grading mais procurados do Brasil — com foco global. Atendemos os Estados Unidos, a Europa, a Arábia Saudita e a Índia com o mesmo padrão, e operar a partir do Sul do país nos permite oferecer a esses mercados uma vantagem enorme: finalização de alto nível a um custo altamente competitivo, sem abrir mão de nenhum rigor.",
     ],
     "en": [
         "Vertigo Color was born from a singular obsession with the cinematic image. When I first set out to elevate my own productions, the endless complexities of lighting, sound and camera gear felt overwhelming — but color grading immediately clicked. Encouraged by industry mentors like Filippo Cinotti, who proved that a dedicated career in color was possible, I went all-in and invested everything I had into mastering the craft.",
         "The turning point came when I joined forces with a business partner who brought over a decade of post-production experience — and the name Vertigo Color with him. By combining obsessive dedication with deeply rooted technical expertise, we built a post-production house entirely around the art and science of the grade.",
-        "Today, Vertigo stands as one of the most sought-after color grading studios in Brazil — with a global focus. Operating from southern Brazil lets us offer North American and European markets a massive advantage: world-class finishing at a highly competitive rate, with zero compromise on rigor.",
+        "Today, Vertigo stands as one of the most sought-after color grading studios in Brazil — with a global focus. We serve the United States, Europe, Saudi Arabia and India to the same standard, and operating from southern Brazil lets us offer those markets a massive advantage: world-class finishing at a highly competitive rate, with zero compromise on rigor.",
     ],
 }
 
 O2_TXT = {
-    "pt": "Base em São Marcos, no Rio Grande do Sul, com sessões remotas ao vivo para qualquer lugar do mundo. E quando o projeto pede presença no Rio de Janeiro, atendemos pela parceria com a O2, usando a infraestrutura deles.",
-    "en": "Based in São Marcos, southern Brazil, with live remote sessions available worldwide. And when a project calls for presence in Rio de Janeiro, we work through our partnership with O2, using their infrastructure.",
+    "pt": "Base em São Marcos, no Rio Grande do Sul, com sessões remotas ao vivo para qualquer lugar do mundo — hoje atendemos do Brasil aos Estados Unidos, Europa, Arábia Saudita e Índia. E quando o projeto pede presença no Rio de Janeiro, atendemos pela parceria com a O2, usando a infraestrutura deles.",
+    "en": "Based in São Marcos, southern Brazil, with live remote sessions available worldwide — today we work with clients from Brazil to the United States, Europe, Saudi Arabia and India. And when a project calls for presence in Rio de Janeiro, we work through our partnership with O2, using their infrastructure.",
 }
 
 REUNIAO = {

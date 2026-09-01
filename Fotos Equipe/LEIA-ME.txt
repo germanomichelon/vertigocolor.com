@@ -1,0 +1,19 @@
+FOTOS DA EQUIPE — é só largar os arquivos aqui.
+
+Nomeie assim (a extensão pode ser .jpg, .jpeg, .png ou .heic):
+
+  germano.jpg         -> seu retrato na página EQUIPE
+  germano-sobre.jpg   -> a foto grande na página SOBRE (opcional)
+
+  rafael.jpg / deisy.jpg / jana.jpg  -> retratos dos outros coloristas
+
+Depois me avise ("troquei a foto") que eu processo e publico.
+Se quiser fazer sozinho:  python3 gerador/imagens.py && python3 gerador/build.py
+
+DICAS
+- Mande a foto no maior tamanho que tiver. Eu reduzo.
+- Os retratos aparecem em pé (proporção 4x5). Corto centralizado,
+  com o enquadramento um pouco acima do meio para o rosto ficar bem.
+  Se preferir um corte específico, mande já cortada em 4x5.
+- Todas as fotos da equipe ficam em preto e branco no site — é a
+  identidade da Vertigo. Pode mandar colorida que eu converto.
