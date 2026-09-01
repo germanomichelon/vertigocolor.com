@@ -1,0 +1,10 @@
+LOGOS DE CLIENTES — é só largar o arquivo aqui.
+
+Nomeie com o nome curto da marca (ex.: lilly.png, rga.jpg, netflix.svg).
+Aceita .png, .jpg ou .svg. Quanto maior, melhor; com fundo transparente
+é o ideal, mas fundo branco ou preto também funciona.
+
+Eu converto tudo para branco puro (o padrão do muro de clientes do site),
+apago o fundo e alinho o tamanho ótico com os outros logos.
+
+Depois de largar o arquivo, me avise que eu publico.

@@ -249,10 +249,11 @@ PROJETOS = [
     },
 ]
 
-CLIENTES_LOGOS = ["nike", "mercedes", "michelin", "natura", "verizon", "chillibeans", "national"]
+CLIENTES_LOGOS = ["nike", "mercedes", "michelin", "natura", "lilly", "rga",
+                  "verizon", "chillibeans", "national"]
 CLIENTES_ALT = {"nike": "Nike", "mercedes": "Mercedes-Benz", "michelin": "Michelin",
                 "natura": "Natura", "verizon": "Verizon", "chillibeans": "Chilli Beans",
-                "national": "National Geographic"}
+                "national": "National Geographic", "lilly": "Eli Lilly", "rga": "R/GA"}
 
 NOMES_FAMOSOS = "Ana Hickmann · Pocah · Leonardo · Cleo Pires · Antonia Morais · Xamã"
 
