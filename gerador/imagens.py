@@ -100,10 +100,39 @@ for i, pref in enumerate(MOSAICO, 1):
     processa(pref, f"mosaico/m{i:02d}.jpg", 1000, 76)
 
 # ---------- logos de clientes ----------
+# Do resgate do site antigo:
 LOGOS = {"nike": 77, "mercedes": 155, "michelin": 211, "natura": 208,
          "verizon": 59, "chillibeans": 18, "national": 205}
 for nome, pref in LOGOS.items():
     print(nome, logo_branco(pref, f"logos/{nome}.png"))
+
+# Novos, entregues na pasta "Logos Clientes/" (ver LEIA-ME lá dentro):
+LOGOS_PASTA = os.path.join(RAIZ, "Logos Clientes")
+if os.path.isdir(LOGOS_PASTA):
+    for arq in sorted(os.listdir(LOGOS_PASTA)):
+        nome, ext = os.path.splitext(arq)
+        if ext.lower() not in (".png", ".jpg", ".jpeg", ".svg"):
+            continue
+        im = Image.open(os.path.join(LOGOS_PASTA, arq)).convert("RGBA")
+        a = im.getchannel("A")
+        cobertura = sum(1 for p in a.getdata() if p > 40) / (im.width * im.height)
+        if 0.005 < cobertura < 0.92:
+            mask = a.point(lambda p: 255 if p > 40 else 0)
+        else:
+            g = im.convert("L")
+            claro = g.getpixel((2, 2)) > 128
+            mask = g.point(lambda p: 255 if (p < 200 if claro else p > 60) else 0)
+        out = Image.new("RGBA", im.size, (255, 255, 255, 0))
+        out.paste(Image.new("RGBA", im.size, (255, 255, 255, 255)), (0, 0), mask)
+        bb = out.getbbox()
+        if bb:
+            out = out.crop(bb)
+        if out.width > 560:
+            out = out.resize((560, round(out.height * 560 / out.width)), Image.LANCZOS)
+        destino = os.path.join(DEST, "logos", f"{nome}.png")
+        os.makedirs(os.path.dirname(destino), exist_ok=True)
+        out.save(destino, "PNG", optimize=True)
+        print(f"{nome} (Logos Clientes/) {out.size}")
 
 # ---------- equipe ----------
 # Fotos novas entram pela pasta "Fotos Equipe/" (ver LEIA-ME lá dentro);
