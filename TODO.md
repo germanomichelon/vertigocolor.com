@@ -3,7 +3,7 @@
 ## Para o Gê (quando der)
 
 - [ ] **Revisar os textos do site** (PT e EN), principalmente o Sobre e as descrições dos projetos. Qualquer ajuste: é só me dizer o que mudar.
-- [ ] **Apontar o domínio para o site novo** — ver o passo a passo em "DNS: o que mudar" no final deste arquivo. Já está tudo pronto do lado do GitHub; falta só o DNS no Squarespace, que exige o código de autenticação enviado para germano.ms.gms@gmail.com.
+- [x] ~~**Apontar o domínio para o site novo**~~ — FEITO em 31/08/2026. Os 4 registros A do GitHub Pages e o CNAME `www` estão salvos no Squarespace; os MX do Google (e-mail) foram preservados.
 - [ ] **Depois do domínio apontado e funcionando**: cancelar só a assinatura do *site* no Squarespace (⚠️ manter o registro do **domínio**, que continua lá).
 - [ ] **Antes/depois** (futuro): exportar do Resolve pares de frames (mesmo frame, versão log e versão final) de 2–3 projetos. Eu construo o slider interativo.
 - [ ] **Filme e documentário** (futuro): mandar lista de projetos com título, link do vídeo e stills — eu adiciono no portfólio.
@@ -28,7 +28,7 @@ Preview local: `cd docs && python3 -m http.server 8734` → http://localhost:873
 
 ---
 
-## DNS: o que mudar (Squarespace)
+## DNS: o que foi feito (Squarespace) — CONCLUÍDO em 31/08/2026
 
 **Onde:** account.squarespace.com → Domínios → vertigocolor.com → DNS → Configurações de DNS.
 O painel pede um código de autenticação enviado para germano.ms.gms@gmail.com.
