@@ -127,8 +127,7 @@ def shell(lang, profundidade, titulo, desc, caminho, caminho_alt, og_img, corpo,
 <body>
 <header class="nav">
   <a class="nav-marca" href="{p}{lang}/index.html" aria-label="Vertigo Color — home">
-    <img src="{p}assets/img/marca/simbolo-branco.png" alt="">
-    <span>Vertigo Color</span>
+    <img src="{p}assets/img/marca/logo-nav.png" alt="Vertigo Color">
   </a>
   <nav class="nav-links">{''.join(nav_itens)}</nav>
   <button class="nav-burger" aria-label="menu"><span></span><span></span><span></span></button>
@@ -137,7 +136,7 @@ def shell(lang, profundidade, titulo, desc, caminho, caminho_alt, og_img, corpo,
 <footer class="rodape">
   <div class="rodape-grade">
     <div>
-      <div class="rodape-marca"><img src="{p}assets/img/marca/simbolo-branco.png" alt=""><strong>Vertigo Color.</strong></div>
+      <div class="rodape-marca"><img src="{p}assets/img/marca/logo-nav.png" alt="Vertigo Color"></div>
       <a class="crypto" href="{p}{caminho_pagina(lang, 'contato' if lang == 'pt' else 'contact')}">Pay us with Crypto</a>
     </div>
     <div class="rodape-col">
@@ -488,8 +487,7 @@ try {
 <body>
 <div class="portao">
   <div class="portao-topo">
-    <img class="simbolo" src="assets/img/marca/simbolo-branco.png" alt="">
-    <div class="marca">Vertigo Color</div>
+    <img class="logo" src="assets/img/marca/logo.png" alt="Vertigo Color">
     <p class="portao-pergunta">Você é brasileiro? · Are you Brazilian?</p>
   </div>
   <div class="portao-opcoes">
@@ -521,7 +519,7 @@ def pagina_404():
 </head>
 <body>
 <div class="pagina-central">
-  <img src="/assets/img/marca/simbolo-branco.png" alt="" style="height:90px">
+  <img src="/assets/img/marca/logo.png" alt="Vertigo Color" style="width:min(300px,70vw)">
   <h1 class="display" style="font-size:clamp(2rem,7vw,4.5rem)">404</h1>
   <p class="mudo">{UI['pt']['err_txt']}<br>{UI['en']['err_txt']}</p>
   <div class="linha-botoes" style="justify-content:center">
