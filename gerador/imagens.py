@@ -68,24 +68,8 @@ def logo_branco(prefixo, rel, largura=560):
     return out.size
 
 
-# ---------- marca ----------
-os.makedirs(os.path.join(DEST, "marca"), exist_ok=True)
-logo = Image.open(os.path.join(RAIZ, "marca", "logo-vertigo-branco.png")).convert("RGBA")
-logo.thumbnail((1400, 1400), Image.LANCZOS)
-logo.save(os.path.join(DEST, "marca", "logo-branco.png"), optimize=True)
-
-# símbolo (homem caindo) = bbox do alpha na metade superior
-full = Image.open(os.path.join(RAIZ, "marca", "logo-vertigo-branco.png")).convert("RGBA")
-topo = full.crop((0, 0, full.width, int(full.height * 0.60)))
-bb = topo.getchannel("A").point(lambda p: 255 if p > 20 else 0).getbbox()
-simbolo = topo.crop(bb)
-simbolo.thumbnail((700, 700), Image.LANCZOS)
-simbolo.save(os.path.join(DEST, "marca", "simbolo-branco.png"), optimize=True)
-
-import shutil
-shutil.copy(os.path.join(RAIZ, "marca", "favicon.ico"), os.path.join(RAIZ, "docs", "favicon.ico"))
-av = Image.open(os.path.join(RAIZ, "marca", "avatar-vg.png")).convert("RGB")
-av.resize((180, 180), Image.LANCZOS).save(os.path.join(RAIZ, "docs", "apple-touch-icon.png"))
+# Os assets de marca (logo, símbolo, favicon) são gerados por gerador/marca.py,
+# a partir dos arquivos oficiais da pasta "Marca Vertigo/".
 
 # ---------- heróis ----------
 processa(78, "herois/xama.jpg", 2400, 82)            # Xamã andaime (hero PT)
@@ -122,11 +106,66 @@ for nome, pref in LOGOS.items():
     print(nome, logo_branco(pref, f"logos/{nome}.png"))
 
 # ---------- equipe ----------
-processa(96, "equipe/germano.jpg", 1000, 82, pb=True)
-processa(54, "equipe/rafael.jpg", 1000, 82, pb=True)
-processa(212, "equipe/deisy.jpg", 1000, 82, pb=True)
-processa(89, "equipe/jana.jpg", 1000, 82, pb=True)
-processa(191, "equipe/germano-sobre.jpg", 1600, 82, pb=True)
+# Fotos novas entram pela pasta "Fotos Equipe/" (ver LEIA-ME lá dentro);
+# se não houver arquivo lá, usa a foto resgatada do site antigo.
+FOTOS_NOVAS = os.path.join(RAIZ, "Fotos Equipe")
+EXTENSOES = (".jpg", ".jpeg", ".png", ".heic", ".HEIC", ".JPG", ".JPEG", ".PNG")
+
+
+def foto_nova(nome):
+    """Caminho da foto entregue pelo Gê, se existir."""
+    for ext in EXTENSOES:
+        caminho = os.path.join(FOTOS_NOVAS, nome + ext)
+        if os.path.exists(caminho):
+            return caminho
+    return None
+
+
+def corta_retrato(im, proporcao=4 / 5, viés_topo=0.38):
+    """Corta para a proporção do site. Em fotos verticais mantém a parte de
+    cima (onde está o rosto) em vez de cortar pelo centro geométrico."""
+    alvo = proporcao
+    atual = im.width / im.height
+    if abs(atual - alvo) < 0.01:
+        return im
+    if atual > alvo:                      # larga demais: corta as laterais
+        larg = round(im.height * alvo)
+        esq = (im.width - larg) // 2
+        return im.crop((esq, 0, esq + larg, im.height))
+    alt = round(im.width / alvo)          # alta demais: corta em cima/embaixo
+    topo = round((im.height - alt) * viés_topo)
+    return im.crop((0, topo, im.width, topo + alt))
+
+
+def retrato(nome, prefixo_resgate, largura=1000):
+    """Gera o retrato P&B da equipe, preferindo a foto nova."""
+    novo = foto_nova(nome)
+    if novo:
+        im = Image.open(novo)
+        origem = f"Fotos Equipe/{os.path.basename(novo)}"
+    else:
+        im = Image.open(acha(prefixo_resgate))
+        origem = "resgate do site antigo"
+    im = ImageOps.exif_transpose(im)
+    im = corta_retrato(im)
+    tam = salva_jpg(im, os.path.join(DEST, f"equipe/{nome}.jpg"), largura, 84, pb=True)
+    print(f"  equipe/{nome}.jpg: {tam[0]}x{tam[1]}  ({origem})")
+
+
+print("Retratos da equipe:")
+retrato("germano", 96)
+retrato("rafael", 54)
+retrato("deisy", 212)
+retrato("jana", 89)
+
+# foto grande da página Sobre (proporção 3x4, não é retrato fechado)
+sobre_novo = foto_nova("germano-sobre")
+if sobre_novo:
+    im = ImageOps.exif_transpose(Image.open(sobre_novo))
+    salva_jpg(im, os.path.join(DEST, "equipe/germano-sobre.jpg"), 1600, 82, pb=True)
+    print("  equipe/germano-sobre.jpg (Fotos Equipe/)")
+else:
+    processa(191, "equipe/germano-sobre.jpg", 1600, 82, pb=True)
 
 # folha de verificação dos logos sobre preto
 sheet = Image.new("RGB", (4 * 300, 2 * 160), (0, 0, 0))
