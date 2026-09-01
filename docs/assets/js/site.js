@@ -3,17 +3,27 @@
   "use strict";
 
   // ajuda de captura/depuração: ?semanim desliga animações e carrega tudo;
-  // ?y=2400 desloca o conteúdo (para screenshots headless)
+  // ?y=2400 rola até a posição (?t=2400 desloca via transform, para painéis
+  // que não processam rolagem)
   var q = location.search;
   var my = q.match(/[?&]y=(\d+)/);
-  if (my || /[?&]semanim/.test(q)) {
+  var mt = q.match(/[?&]t=(\d+)/);
+  if (my || mt || /[?&]semanim/.test(q)) {
     document.documentElement.classList.add("sem-anim");
     document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll("img[loading=lazy]").forEach(function (im) {
         im.loading = "eager";
       });
+      if (mt) {
+        // desloca só o conteúdo; a barra fixa continua no topo
+        document.querySelectorAll("body > main, body > .rodape").forEach(function (el) {
+          el.style.transform = "translateY(-" + mt[1] + "px)";
+        });
+      }
       if (my) {
-        document.body.style.transform = "translateY(-" + my[1] + "px)";
+        try { history.scrollRestoration = "manual"; } catch (e) {}
+        window.scrollTo(0, parseInt(my[1], 10));
+        setTimeout(function () { window.scrollTo(0, parseInt(my[1], 10)); }, 300);
       }
     });
   }
