@@ -85,8 +85,8 @@ h1, h2, h3 { font-weight: 800; text-transform: uppercase; line-height: 0.95; let
 }
 .nav.solida { background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(10px); padding-top: clamp(12px, 1.2vw, 16px); padding-bottom: clamp(12px, 1.2vw, 16px); }
 .nav-marca { display: flex; align-items: center; }
-.nav-marca img { height: clamp(72px, 7.2vw, 104px); width: auto; transition: opacity 0.25s, height 0.35s var(--ease); }
-.nav.solida .nav-marca img { height: clamp(56px, 5vw, 72px); }
+.nav-marca img { height: clamp(88px, 9vw, 132px); width: auto; transition: opacity 0.25s, height 0.35s var(--ease); }
+.nav.solida .nav-marca img { height: clamp(64px, 6.2vw, 90px); }
 .nav-marca:hover img { opacity: 0.7; }
 .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.6vw, 36px); }
 .nav-links a { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--b70); transition: color 0.25s; }
@@ -98,8 +98,8 @@ h1, h2, h3 { font-weight: 800; text-transform: uppercase; line-height: 0.95; let
 
 @media (max-width: 820px) {
   .nav-burger { display: block; }
-  .nav-marca img { height: 76px; }
-  .nav.solida .nav-marca img { height: 58px; }
+  .nav-marca img { height: 92px; }
+  .nav.solida .nav-marca img { height: 66px; }
   .nav-links {
     position: fixed; inset: 0; background: var(--preto);
     flex-direction: column; justify-content: center; gap: 34px;
@@ -238,7 +238,7 @@ h1, h2, h3 { font-weight: 800; text-transform: uppercase; line-height: 0.95; let
 .embed:hover .embed-play::after { border-left-color: var(--preto); }
 
 /* ---------- página de projeto ---------- */
-.projeto-topo { padding-top: clamp(150px, 22vh, 230px); }
+.projeto-topo { padding-top: clamp(175px, 26vh, 270px); }
 .projeto-meta { display: flex; gap: 18px; flex-wrap: wrap; align-items: baseline; margin: 16px 0 10px; }
 .creditos { columns: 1; max-width: 760px; }
 @media (min-width: 760px) { .creditos { columns: 2; column-gap: 48px; } }

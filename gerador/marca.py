@@ -34,7 +34,7 @@ def salva(im, nome, largura=None, altura=None):
 print("Logo oficial completo (VERTIGO COLOR):")
 logo = apara(Image.open(os.path.join(OFICIAL, "Logo Vertigo.png")).convert("RGBA"))
 salva(logo, "logo.png", largura=1200)      # portão de entrada / usos grandes
-salva(logo, "logo-nav.png", largura=450)   # rodapé (3x de 150px, para telas retina)
+salva(logo, "logo-nav.png", largura=620)   # nav e rodapé (3x, para telas retina)
 
 print("Símbolo oficial isolado (arquivo Favicon.png):")
 simbolo = apara(Image.open(os.path.join(OFICIAL, "Favicon.png")).convert("RGBA"))
