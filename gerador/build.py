@@ -571,8 +571,7 @@ def main():
     escreve("404.html", pagina_404()); n += 1
     escreve("sitemap.xml", sitemap()); n += 1
     escreve("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {DOMINIO}/sitemap.xml\n"); n += 1
-    # CNAME: reativar quando o DNS do Squarespace apontar para o GitHub Pages
-    # escreve("CNAME", "vertigocolor.com\n")
+    escreve("CNAME", "vertigocolor.com\n"); n += 1
     escreve(".nojekyll", ""); n += 1
 
     for lang in ("pt", "en"):
