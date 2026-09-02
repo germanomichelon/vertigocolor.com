@@ -282,6 +282,15 @@ h1, h2, h3 { font-weight: 800; text-transform: uppercase; line-height: 0.95; let
 
 /* ---------- sobre / texto longo ---------- */
 .prosa { max-width: 720px; }
+/* Texto corrido justificado em todo o site, com hifenização ligada
+   (sem hífen o justificado abriria vãos brancos entre as palavras).
+   A hifenização usa o lang da página: pt-BR e en. */
+.prosa p, .prosa, .pessoa p, .servico p, .depo blockquote, .hero-sub,
+.contato-grande .prosa, .projeto-meta + .prosa {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
 .prosa p { margin-bottom: 1.3em; font-size: clamp(1rem, 1.4vw, 1.15rem); color: var(--b90); }
 .duas-colunas { display: grid; gap: clamp(28px, 5vw, 72px); align-items: start; }
 @media (min-width: 940px) { .duas-colunas { grid-template-columns: 1.1fr 0.9fr; } }
