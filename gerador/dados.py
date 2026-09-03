@@ -28,6 +28,16 @@ EQUIPE = [
         },
     },
     {
+        "slug": "rafael-batista",
+        "nome": "Rafael Pereira Batista",
+        "cargo": {"pt": "Colorista sênior e fundador", "en": "Senior Colorist & Founder"},
+        "foto": "equipe/rafael-batista.jpg",
+        "bio": {
+            "pt": "Sócio-fundador da Vertigo Color, trouxe para a empresa mais de uma década de experiência em pós-produção — e o nome Vertigo Color junto.",
+            "en": "Co-founder of Vertigo Color, he brought over a decade of post-production experience to the company — and the Vertigo Color name with it.",
+        },
+    },
+    {
         "slug": "rafael",
         "nome": "Rafael de Deus",
         "cargo": {"pt": "Colorista", "en": "Colorist"},
@@ -304,12 +314,12 @@ SERVICOS = [
 SOBRE = {
     "pt": [
         "A Vertigo Color nasceu de uma obsessão singular pela imagem cinematográfica. Quando comecei a produzir meus próprios vídeos, a complexidade de luz, som e equipamento parecia infinita — mas o color grading fez sentido imediatamente. Incentivado por mentores como Filippo Cinotti, que provaram que uma carreira dedicada à cor era possível, investi tudo o que tinha em dominar o ofício.",
-        "A virada veio ao unir forças com um sócio que trazia mais de uma década de pós-produção — e o nome Vertigo Color junto. Combinando dedicação obsessiva com experiência técnica profunda, construímos uma casa de pós-produção inteiramente em torno da arte e da ciência da cor.",
+        "A virada veio ao unir forças com Rafael Pereira Batista, um sócio que trazia mais de uma década de pós-produção — e o nome Vertigo Color junto. Combinando dedicação obsessiva com experiência técnica profunda, construímos uma casa de pós-produção inteiramente em torno da arte e da ciência da cor.",
         "Hoje, a Vertigo é um dos estúdios de color grading mais procurados do Brasil — com foco global. Atendemos os Estados Unidos, a Europa, a Arábia Saudita e a Índia com o mesmo padrão, e operar a partir do Sul do país nos permite oferecer a esses mercados uma vantagem enorme: finalização de alto nível a um custo altamente competitivo, sem abrir mão de nenhum rigor.",
     ],
     "en": [
         "Vertigo Color was born from a singular obsession with the cinematic image. When I first set out to elevate my own productions, the endless complexities of lighting, sound and camera gear felt overwhelming — but color grading immediately clicked. Encouraged by industry mentors like Filippo Cinotti, who proved that a dedicated career in color was possible, I went all-in and invested everything I had into mastering the craft.",
-        "The turning point came when I joined forces with a business partner who brought over a decade of post-production experience — and the name Vertigo Color with him. By combining obsessive dedication with deeply rooted technical expertise, we built a post-production house entirely around the art and science of the grade.",
+        "The turning point came when I joined forces with Rafael Pereira Batista, a business partner who brought over a decade of post-production experience — and the name Vertigo Color with him. By combining obsessive dedication with deeply rooted technical expertise, we built a post-production house entirely around the art and science of the grade.",
         "Today, Vertigo stands as one of the most sought-after color grading studios in Brazil — with a global focus. We serve the United States, Europe, Saudi Arabia and India to the same standard, and operating from southern Brazil lets us offer those markets a massive advantage: world-class finishing at a highly competitive rate, with zero compromise on rigor.",
     ],
 }

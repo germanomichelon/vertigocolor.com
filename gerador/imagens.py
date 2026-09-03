@@ -26,7 +26,12 @@ def salva_jpg(im, caminho, largura, q=80, pb=False):
         bg.alpha_composite(im.convert("RGBA"))
         im = bg.convert("RGB")
     if pb:
-        im = ImageOps.autocontrast(im.convert("L"), cutoff=1).convert("RGB")
+        cinza = im.convert("L")
+        # se a imagem já é preto e branco, preserva o tratamento original
+        ja_pb = im.mode in ("L", "LA") or max(
+            (max(px) - min(px)) for px in im.convert("RGB").resize((60, 60)).getdata()
+        ) < 12
+        im = (cinza if ja_pb else ImageOps.autocontrast(cinza, cutoff=1)).convert("RGB")
     if im.width > largura:
         im = im.resize((largura, round(im.height * largura / im.width)), Image.LANCZOS)
     im.save(caminho, "JPEG", quality=q, optimize=True, progressive=True)
@@ -166,12 +171,30 @@ def corta_retrato(im, proporcao=4 / 5, viés_topo=0.38):
     return im.crop((0, topo, im.width, topo + alt))
 
 
+def placeholder(largura=1000):
+    """Card neutro para quem ainda não entregou foto: fundo escuro com o
+    símbolo da marca discreto, para não quebrar o alinhamento da grade."""
+    alt = round(largura * 5 / 4)
+    base = Image.new("RGBA", (largura, alt), (18, 18, 18, 255))
+    simb = os.path.join(DEST, "marca", "simbolo.png")
+    if os.path.exists(simb):
+        s = Image.open(simb).convert("RGBA")
+        s.thumbnail((round(largura * 0.34), round(alt * 0.34)), Image.LANCZOS)
+        véu = Image.new("RGBA", s.size, (255, 255, 255, 38))
+        s = Image.composite(véu, Image.new("RGBA", s.size, (0, 0, 0, 0)), s.getchannel("A"))
+        base.alpha_composite(s, ((largura - s.width) // 2, (alt - s.height) // 2))
+    return base.convert("RGB")
+
+
 def retrato(nome, prefixo_resgate, largura=1000):
     """Gera o retrato P&B da equipe, preferindo a foto nova."""
     novo = foto_nova(nome)
     if novo:
         im = Image.open(novo)
         origem = f"Fotos Equipe/{os.path.basename(novo)}"
+    elif prefixo_resgate is None:
+        im = placeholder(largura)
+        origem = "PLACEHOLDER — aguardando foto em Fotos Equipe/"
     else:
         im = Image.open(acha(prefixo_resgate))
         origem = "resgate do site antigo"
@@ -183,6 +206,7 @@ def retrato(nome, prefixo_resgate, largura=1000):
 
 print("Retratos da equipe:")
 retrato("germano", 96)
+retrato("rafael-batista", None)   # foto ainda não entregue
 retrato("rafael", 54)
 retrato("deisy", 212)
 retrato("jana", 89)
