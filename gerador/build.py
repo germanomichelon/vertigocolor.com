@@ -24,7 +24,7 @@ UI = {
         "hero_h1": "Somos<br>cor.",
         "hero_sub": "Estúdio de color grading para cinema, publicidade e música — do Brasil para o mundo.",
         "hero_img": "herois/xama.jpg",
-        "hero_credito": "Xamã — Puto de Luxo · color por Deisy Araújo",
+        "hero_credito": "Xamã · color pela Vertigo",
         "ver_portfolio": "Ver portfólio", "falar": "Chamar no WhatsApp",
         "trabalhos": "Trabalhos selecionados", "ver_tudo": "Ver o portfólio completo",
         "clientes": "Marcas que já passaram pela nossa cor",
