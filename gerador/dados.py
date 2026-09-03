@@ -86,14 +86,14 @@ PROJETOS = [
         "colorista": "deisy",
         "yt": "WhgDK3wDsyc",
         "desc": {
-            "pt": "Xamã sobre andaimes, neon rosa contra o entardecer do Rio. Cor que sustenta a atitude do clipe do início ao fim.",
-            "en": "Xamã on scaffolding, pink neon against a Rio sunset. Grading that carries the video's attitude from first frame to last.",
+            "pt": "Videoclipe do Xamã: couro preto, luz fria e contraste alto. Cor que sustenta a atitude do clipe do início ao fim.",
+            "en": "A music video for Xamã: black leather, cold light and high contrast. Grading that carries the video's attitude from first frame to last.",
         },
         "creditos": [
             ("Artista / Artist", "Xamã"),
             ("Color", "Deisy Araújo"),
         ],
-        "n_galeria": 2,
+        "n_galeria": 1,
     },
     {
         "slug": "uceff",
@@ -257,7 +257,7 @@ CLIENTES_ALT = {"nike": "Nike", "mercedes": "Mercedes-Benz", "michelin": "Michel
 
 NOMES_FAMOSOS = "Ana Hickmann · Pocah · Leonardo · Cleo Pires · Antonia Morais · Xamã"
 
-MOSAICO_N = 14
+MOSAICO_N = 15
 
 DEPOIMENTOS = [
     {

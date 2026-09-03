@@ -82,7 +82,7 @@ PROJETOS = {
     "call-me": {"capa": 11, "galeria": [11, 121, 214]},
     "only-holy-water": {"capa": 12, "galeria": [12, 218, 81, 50, 137]},
     "my-voice-for-you": {"capa": 8, "galeria": [92, 85, 17, 176, 69, 151, 42, 156, 172, 223, 119, 166, 138, 109, 118, 84]},
-    "puto-de-luxo": {"capa": 78, "galeria": [78, 28]},
+    "puto-de-luxo": {"capa": 28, "galeria": [28]},
     "noug": {"capa": 6, "galeria": [6, 86, 199, 116, 220, 160, 187, 95, 102, 108]},
     "metagenics": {"capa": 13, "galeria": [13, 159, 68, 175, 165, 200, 126, 158]},
     "unisc": {"capa": 10, "galeria": [10, 163, 101, 122, 167, 229, 179, 20, 70, 157, 149, 112, 72, 115, 74, 192]},
@@ -95,7 +95,7 @@ for slug, cfg in PROJETOS.items():
         processa(pref, f"projetos/{slug}/g{i:02d}.jpg", 1600, 78)
 
 # ---------- mosaico da home ----------
-MOSAICO = [44, 225, 98, 203, 57, 188, 82, 22, 230, 132, 51, 129, 221, 104]
+MOSAICO = [44, 225, 98, 203, 57, 188, 82, 22, 230, 132, 51, 129, 221, 104, 78]
 for i, pref in enumerate(MOSAICO, 1):
     processa(pref, f"mosaico/m{i:02d}.jpg", 1000, 76)
 
