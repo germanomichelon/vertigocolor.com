@@ -259,13 +259,12 @@ PROJETOS = [
     },
 ]
 
-CLIENTES_LOGOS = ["nike", "mercedes", "michelin", "natura", "mounjaro", "zepbound",
-                  "rga", "verizon", "chillibeans", "national"]
+CLIENTES_LOGOS = ["nike", "mercedes", "michelin", "natura", "mounjaro", "rga",
+                  "verizon", "chillibeans", "national"]
 CLIENTES_ALT = {"nike": "Nike", "mercedes": "Mercedes-Benz", "michelin": "Michelin",
                 "natura": "Natura", "verizon": "Verizon", "chillibeans": "Chilli Beans",
                 "national": "National Geographic", "rga": "R/GA",
-                "mounjaro": "Mounjaro (tirzepatida) — Eli Lilly",
-                "zepbound": "Zepbound (tirzepatida) — Eli Lilly"}
+                "mounjaro": "Mounjaro (tirzepatida) — Eli Lilly"}
 
 NOMES_FAMOSOS = "Ana Hickmann · Pocah · Leonardo · Cleo Pires · Antonia Morais · Xamã"
 
