@@ -348,3 +348,8 @@ h1, h2, h3 { font-weight: 800; text-transform: uppercase; line-height: 0.95; let
 .video-link { margin-top: 14px; text-align: right; font-size: 0.85rem; }
 .video-link a { color: var(--b70); border-bottom: 1px solid var(--b25); transition: color 0.2s, border-color 0.2s; }
 .video-link a:hover { color: var(--branco); border-color: var(--branco); }
+
+/* Perguntas frequentes */
+.pergunta { padding: clamp(28px, 4vw, 48px) 0; border-top: 1px solid var(--b12); }
+.pergunta h2 { font-size: clamp(1.25rem, 2.6vw, 1.9rem); line-height: 1.2; margin-bottom: 16px; }
+.pergunta .creditos { columns: 1; margin-bottom: 1.3em; }

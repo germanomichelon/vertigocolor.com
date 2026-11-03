@@ -427,3 +427,44 @@ REDIRECIONAMENTOS = {
     "blog/quando-o-projeto-vai-ficando-maior-ao-longo-da-execuo-guia-para-freelancers": _HOME,
     "blog/um-erro-sobre-dinheiro-que-muito-freelancer-comete": _HOME,
 }
+
+# Perguntas frequentes: só o que o Gê respondeu (03/11/2026). Os prazos já somam os 2 dias de
+# conform que ele pediu. Nunca publicar valores. Agenda: falar da capacidade da equipe.
+PERGUNTAS = {
+    "pt": {
+        "h1": "Perguntas frequentes",
+        "rodape": "Perguntas frequentes",
+        "titulo": "Perguntas frequentes sobre color grading — Vertigo Color",
+        "desc": "Forma de cobrança, prazos e agenda: o que mais nos perguntam sobre color grading e colorização de filmes.",
+        "chamada": "Como cobramos, prazos e agenda: veja as perguntas frequentes",
+        "itens": [
+            {"q": "Quanto custa o color grading de um projeto?",
+             "a": "Depende do projeto. Normalmente cobramos por projeto, mas às vezes é por diária ou por minuto, dependendo do cliente. Conte como é o seu e mandamos o orçamento."},
+            {"q": "Quanto tempo demora a colorização de um filme ou comercial?",
+             "a": "Depende muito do projeto. Em média:",
+             "lista": [("Comercial de 30 segundos", "3 dias"), ("Videoclipe", "5 a 6 dias"),
+                       ("Curta-metragem", "17 dias"), ("Longa-metragem", "1 mês e 2 dias")],
+             "nota": "Esses prazos já incluem cerca de 2 dias para receber o projeto do editor, fazer o conform e entregar."},
+            {"q": "Vocês têm agenda para o meu projeto?",
+             "a": "Normalmente, sim. Somos cinco coloristas, então um projeto novo não precisa esperar outro terminar. Mande a data de entrega e confirmamos."},
+        ],
+    },
+    "en": {
+        "h1": "Frequently asked questions",
+        "rodape": "FAQ",
+        "titulo": "Color grading FAQ — Vertigo Color",
+        "desc": "How we charge, turnaround times and availability: the questions we hear most about color grading.",
+        "chamada": "How we charge, turnaround and availability: see the FAQ",
+        "itens": [
+            {"q": "How much does color grading cost?",
+             "a": "It depends on the project. We usually charge per project, but sometimes it's per day or per minute, depending on the client. Tell us about yours and we'll send you a quote."},
+            {"q": "How long does color grading take?",
+             "a": "It depends a lot on the project. On average:",
+             "lista": [("30-second commercial", "3 days"), ("Music video", "5 to 6 days"),
+                       ("Short film", "17 days"), ("Feature film", "1 month and 2 days")],
+             "nota": "These times already include about 2 days to receive the project from the editor, conform it and deliver."},
+            {"q": "Do you have availability for my project?",
+             "a": "Usually, yes. There are five colorists on the team, so a new project doesn't have to wait for another one to finish. Send us your delivery date and we'll confirm."},
+        ],
+    },
+}

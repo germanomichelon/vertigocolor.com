@@ -37,6 +37,12 @@
   <url><loc>https://vertigocolor.com/en/meeting.html</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vertigocolor.com/pt/reuniao.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://vertigocolor.com/en/meeting.html"/></url>
+  <url><loc>https://vertigocolor.com/pt/perguntas-frequentes.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vertigocolor.com/pt/perguntas-frequentes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vertigocolor.com/en/faq.html"/></url>
+  <url><loc>https://vertigocolor.com/en/faq.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vertigocolor.com/pt/perguntas-frequentes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vertigocolor.com/en/faq.html"/></url>
   <url><loc>https://vertigocolor.com/pt/projetos/dead-men-walk-alone.html</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vertigocolor.com/pt/projetos/dead-men-walk-alone.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://vertigocolor.com/en/projects/dead-men-walk-alone.html"/></url>

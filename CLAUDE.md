@@ -66,8 +66,8 @@ O `.claude/launch.json` não funciona: o macOS bloqueia o acesso do servidor de 
   `localStorage` (`vc-lang`).
 - PT e EN são **adaptados**, não traduzidos ao pé da letra. Toda mudança de texto vale para os
   dois idiomas.
-- Rotas: PT em `/pt/` (`projetos/`, `equipe`, `sobre`, `contato`, `reuniao`); EN em `/en/`
-  (`projects/`, `team`, `about`, `contact`, `meeting`).
+- Rotas: PT em `/pt/` (`projetos/`, `equipe`, `sobre`, `contato`, `reuniao`, `perguntas-frequentes`); EN em `/en/`
+  (`projects/`, `team`, `about`, `contact`, `meeting`, `faq`).
 - Equipe, nesta ordem: **Germano Michelon Santos** e **Rafael Pereira Batista** (fundadores,
   coloristas sênior), Rafael de Deus, Deisy Araújo, Jana Spínola.
   **São dois Rafaéis diferentes** — slugs `rafael-batista` e `rafael`.
@@ -77,6 +77,7 @@ O `.claude/launch.json` não funciona: o macOS bloqueia o acesso do servidor de 
   formulários. Contato só por WhatsApp e e-mail. O "Pay us with Crypto" do rodapé fica.
 - A Vertigo **não vende sessão ao vivo**: escrever "atendimento remoto" / "working remotely, in your timezone".
 - **Não publicar preço nem faixa de preço.** O site pode explicar como o orçamento funciona, sem valores.
+- Agenda: falar da capacidade da equipe, nunca de agenda livre.
 - Mercados atendidos, quando houver lista: Brasil, Estados Unidos, Europa, Arábia Saudita e Índia.
 - **Não inventar fatos** — créditos, clientes, datas, atribuições. Na dúvida, perguntar.
 - A imagem do Xamã no andaime (abertura da home em PT) **não é do Puto de Luxo**; o projeto de
@@ -84,7 +85,7 @@ O `.claude/launch.json` não funciona: o macOS bloqueia o acesso do servidor de 
 
 ## Buscadores e IAs
 
-- Dados estruturados (JSON-LD) saem de `build.py` (`ld_org`, `ld_equipe`, `ld_projeto`) e só podem
+- Dados estruturados (JSON-LD) saem de `build.py` (`ld_org`, `ld_equipe`, `ld_projeto`, `ld_perguntas`) e só podem
   afirmar o que está visível na página. Ao mudar endereço, equipe ou serviços, eles acompanham.
 - Marcas, nomes e créditos precisam aparecer **em texto**, não só dentro de imagens.
 - A nota do Google (`GOOGLE_NOTA` em `dados.py`) é atualizada à mão; conferir no perfil antes de mudar.

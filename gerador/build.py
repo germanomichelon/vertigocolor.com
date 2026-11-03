@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from dados import (DOMINIO, WHATSAPP, WHATSAPP_FMT, EMAIL, ENDERECO, INSTAGRAM,
                    YOUTUBE, TIKTOK, REDES_GERMANO, GOOGLE_PERFIL, LINKEDIN_EMPRESA, GOOGLE_NOTA, REDIRECIONAMENTOS, CATEGORIAS, EQUIPE, PROJETOS, CLIENTES_LOGOS,
                    CLIENTES_ALT, NOMES_FAMOSOS, MOSAICO_N, DEPOIMENTOS, SERVICOS,
-                   SOBRE, O2_TXT, REUNIAO)
+                   SOBRE, O2_TXT, REUNIAO, PERGUNTAS)
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(RAIZ, "docs")
@@ -178,6 +178,25 @@ def ld_projeto(proj, lang):
     return dados
 
 
+PAGINA_PERGUNTAS = {"pt": "perguntas-frequentes", "en": "faq"}
+
+
+def resposta_em_texto(item):
+    """A resposta inteira em uma linha, igual à que aparece na página."""
+    partes = [item["a"]]
+    partes += [f"{rotulo}: {valor}." for rotulo, valor in item.get("lista", [])]
+    if item.get("nota"):
+        partes.append(item["nota"])
+    return " ".join(partes)
+
+
+def ld_perguntas(lang):
+    return {"@context": "https://schema.org", "@type": "FAQPage",
+            "mainEntity": [{"@type": "Question", "name": it["q"],
+                            "acceptedAnswer": {"@type": "Answer", "text": resposta_em_texto(it)}}
+                           for it in PERGUNTAS[lang]["itens"]]}
+
+
 def caminho_pagina(lang, pagina, slug=None):
     """Caminho relativo à raiz de docs/ para uma página lógica."""
     if pagina == "projeto":
@@ -246,7 +265,7 @@ def shell(lang, profundidade, titulo, desc, caminho, caminho_alt, og_img, corpo,
       <a href="{WHATSAPP}" target="_blank" rel="noopener">{WHATSAPP_FMT}</a>
       <p>{ENDERECO}</p>
     </div>
-    <div class="rodape-col">{redes}</div>
+    <div class="rodape-col">{redes}<a href="{p}{caminho_pagina(lang, PAGINA_PERGUNTAS[lang])}">{PERGUNTAS[lang]['rodape']}</a></div>
   </div>
   <div class="rodape-baixo">
     <span>© 2026 Vertigo Color. {ui['direitos']}</span>
@@ -528,7 +547,8 @@ def pagina_contato(lang):
     corpo = f"""<main class="projeto-topo">
 <section class="secao contato-grande" style="padding-top:0"><div class="miolo">
   <h1 class="display reveal" style="margin-bottom:20px">{ui['contato_h1']}</h1>
-  <p class="prosa reveal mudo" style="margin-bottom:44px">{ui['contato_sub']}</p>
+  <p class="prosa reveal mudo" style="margin-bottom:14px">{ui['contato_sub']}</p>
+  <p class="reveal" style="margin-bottom:44px"><a href="{PAGINA_PERGUNTAS[lang]}.html">{PERGUNTAS[lang]['chamada']} →</a></p>
   <p class="reveal"><a class="email" href="mailto:{EMAIL}">{EMAIL}</a></p>
   <div class="contato-lista">
     <div class="item reveal"><span class="rotulo">{ui['whatsapp']}</span>
@@ -543,6 +563,35 @@ def pagina_contato(lang):
     return shell(lang, 1, titulo, ui["contato_sub"], caminho, caminho_alt,
                  "herois/xama.jpg" if lang == "pt" else "herois/deadmen.jpg",
                  corpo, ativo="contato.html" if lang == "pt" else "contact.html", ld=[ld_org(lang)])
+
+
+def pagina_perguntas(lang):
+    conteudo = PERGUNTAS[lang]
+    p = "../"
+    caminho = caminho_pagina(lang, PAGINA_PERGUNTAS[lang])
+    outro = UI[lang]["outro"]
+    caminho_alt = caminho_pagina(outro, PAGINA_PERGUNTAS[outro])
+    blocos = []
+    for it in conteudo["itens"]:
+        lista = ""
+        if it.get("lista"):
+            linhas = "".join(f"<li><span>{a}</span><span>{b}</span></li>" for a, b in it["lista"])
+            lista = f'<ul class="creditos">{linhas}</ul>'
+        nota = f"<p>{it['nota']}</p>" if it.get("nota") else ""
+        blocos.append(f"""<article class="pergunta reveal">
+  <h2>{it['q']}</h2>
+  <div class="prosa"><p>{it['a']}</p>{lista}{nota}</div>
+</article>""")
+    corpo = f"""<main class="projeto-topo">
+<section class="secao" style="padding-top:0"><div class="miolo">
+  <h1 class="display reveal" style="font-size:clamp(2.2rem,6.5vw,5.5rem);margin-bottom:38px">{conteudo['h1']}</h1>
+  {''.join(blocos)}
+</div></section>
+{secao_cta(lang, p)}
+</main>"""
+    return shell(lang, 1, conteudo["titulo"], conteudo["desc"], caminho, caminho_alt,
+                 "herois/xama.jpg" if lang == "pt" else "herois/deadmen.jpg", corpo,
+                 ld=[ld_perguntas(lang)])
 
 
 def pagina_reuniao(lang):
@@ -673,12 +722,14 @@ def llms_txt():
               f"- [Portfolio]({url('en/portfolio.html')}): all projects",
               f"- [Team]({url('en/team.html')}): colorists and founders",
               f"- [About]({url('en/about.html')}): the studio's story and infrastructure",
+              f"- [FAQ]({url('en/faq.html')}): how we charge, turnaround times and availability",
               f"- [Contact]({url('en/contact.html')})", "",
               "## Português", "",
               f"- [Início]({url('pt/index.html')}): serviços, trabalhos selecionados e clientes",
               f"- [Portfólio]({url('pt/portfolio.html')}): todos os projetos",
               f"- [Equipe]({url('pt/equipe.html')}): coloristas e fundadores",
               f"- [Sobre]({url('pt/sobre.html')}): a história e a estrutura do estúdio",
+              f"- [Perguntas frequentes]({url('pt/perguntas-frequentes.html')}): como cobramos, prazos e agenda",
               f"- [Contato]({url('pt/contato.html')})", "",
               "## Projects", ""]
     for pr in PROJETOS:
@@ -716,7 +767,8 @@ def pagina_404():
 def sitemap():
     urls = [("", None)]
     paginas = [("index", "index"), ("portfolio", "portfolio"), ("equipe", "team"),
-               ("sobre", "about"), ("contato", "contact"), ("reuniao", "meeting")]
+               ("sobre", "about"), ("contato", "contact"), ("reuniao", "meeting"),
+               (PAGINA_PERGUNTAS["pt"], PAGINA_PERGUNTAS["en"])]
     linhas = []
     for pt_p, en_p in paginas:
         for lang, pg in (("pt", pt_p), ("en", en_p)):
@@ -766,6 +818,7 @@ def main():
         escreve(caminho_pagina(lang, "sobre" if lang == "pt" else "about"), pagina_sobre(lang)); n += 1
         escreve(caminho_pagina(lang, "contato" if lang == "pt" else "contact"), pagina_contato(lang)); n += 1
         escreve(caminho_pagina(lang, "reuniao" if lang == "pt" else "meeting"), pagina_reuniao(lang)); n += 1
+        escreve(caminho_pagina(lang, PAGINA_PERGUNTAS[lang]), pagina_perguntas(lang)); n += 1
         for i in range(len(PROJETOS)):
             escreve(caminho_pagina(lang, "projeto", PROJETOS[i]["slug"]), pagina_projeto(lang, i)); n += 1
 

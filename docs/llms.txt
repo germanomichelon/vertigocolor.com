@@ -16,6 +16,7 @@ Estúdio brasileiro de color grading e colorização de filmes para cinema, sér
 - [Portfolio](https://vertigocolor.com/en/portfolio.html): all projects
 - [Team](https://vertigocolor.com/en/team.html): colorists and founders
 - [About](https://vertigocolor.com/en/about.html): the studio's story and infrastructure
+- [FAQ](https://vertigocolor.com/en/faq.html): how we charge, turnaround times and availability
 - [Contact](https://vertigocolor.com/en/contact.html)
 
 ## Português
@@ -24,6 +25,7 @@ Estúdio brasileiro de color grading e colorização de filmes para cinema, sér
 - [Portfólio](https://vertigocolor.com/pt/portfolio.html): todos os projetos
 - [Equipe](https://vertigocolor.com/pt/equipe.html): coloristas e fundadores
 - [Sobre](https://vertigocolor.com/pt/sobre.html): a história e a estrutura do estúdio
+- [Perguntas frequentes](https://vertigocolor.com/pt/perguntas-frequentes.html): como cobramos, prazos e agenda
 - [Contato](https://vertigocolor.com/pt/contato.html)
 
 ## Projects
