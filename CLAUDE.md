@@ -72,8 +72,11 @@ O `.claude/launch.json` não funciona: o macOS bloqueia o acesso do servidor de 
   coloristas sênior), Rafael de Deus, Deisy Araújo, Jana Spínola.
   **São dois Rafaéis diferentes** — slugs `rafael-batista` e `rafael`.
 - Todo projeto do portfólio leva o nome de quem o coloriu.
+- Filmes de marca fora do portfólio (Nike, Mercedes-Benz e afins): citar a marca, sem colorista nem ano.
 - Foco 100% estúdio: sem blog, sem curso ou mentoria (educação terá site próprio), sem
   formulários. Contato só por WhatsApp e e-mail. O "Pay us with Crypto" do rodapé fica.
+- A Vertigo **não vende sessão ao vivo**: escrever "atendimento remoto" / "working remotely, in your timezone".
+- **Não publicar preço nem faixa de preço.** O site pode explicar como o orçamento funciona, sem valores.
 - Mercados atendidos, quando houver lista: Brasil, Estados Unidos, Europa, Arábia Saudita e Índia.
 - **Não inventar fatos** — créditos, clientes, datas, atribuições. Na dúvida, perguntar.
 - A imagem do Xamã no andaime (abertura da home em PT) **não é do Puto de Luxo**; o projeto de

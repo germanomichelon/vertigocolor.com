@@ -1,6 +1,6 @@
 # Vertigo Color — site
 
-Código do site da **[Vertigo Color](https://vertigocolor.com)**, estúdio brasileiro de color grading para cinema, séries, publicidade e videoclipes, com base em São Marcos (RS) e sessões remotas ao vivo.
+Código do site da **[Vertigo Color](https://vertigocolor.com)**, estúdio brasileiro de color grading para cinema, séries, publicidade e videoclipes, com base em São Marcos (RS) e atendimento remoto.
 
 **Site oficial:** [vertigocolor.com](https://vertigocolor.com) · [Versão em inglês](https://vertigocolor.com/en/index.html)
 

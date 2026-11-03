@@ -16,6 +16,7 @@ REDES_GERMANO = [INSTAGRAM, YOUTUBE, TIKTOK,
                  "https://creators.spotify.com/pod/profile/germano-michelon-santos/"]
 # Ficha pública no Google. Nota e número de avaliações conferidos em 03/11/2026: atualizar à mão.
 GOOGLE_PERFIL = "https://www.google.com/maps?cid=1024686640801054637"
+LINKEDIN_EMPRESA = "https://www.linkedin.com/company/vertigo-color/"
 GOOGLE_NOTA = {"pt": "5,0 no Google · 16 avaliações", "en": "5.0 on Google · 16 reviews"}
 
 CATEGORIAS = {
@@ -322,8 +323,8 @@ SERVICOS = [
      "en": ("Advertising", "Commercials and branded content with the consistency brands demand.")},
     {"pt": ("Videoclipe", "Looks autorais para artistas — do naturalista ao extremo."),
      "en": ("Music videos", "Signature looks for artists — from naturalistic to extreme.")},
-    {"pt": ("Sessão remota ao vivo", "Você acompanha e aprova em tempo real, de onde estiver."),
-     "en": ("Live remote sessions", "Watch and approve in real time, wherever you are.")},
+    {"pt": ("Atendimento remoto", "Trabalhamos à distância: acertamos o look nas primeiras cenas e só seguimos depois da sua aprovação."),
+     "en": ("Remote color grading", "We work in your timezone, lock the look on the first few scenes and only move on once you've signed off.")},
     {"pt": ("HDR e finalização", "Entrega em SDR, HDR e DCP, no padrão de cada janela de exibição."),
      "en": ("HDR & finishing", "SDR, HDR and DCP delivery, to the standard of every screen.")},
     {"pt": ("Look development", "Definição de look antes das filmagens, junto da direção e da fotografia."),
@@ -344,8 +345,8 @@ SOBRE = {
 }
 
 O2_TXT = {
-    "pt": "Base em São Marcos, no Rio Grande do Sul, com sessões remotas ao vivo para qualquer lugar do mundo — hoje atendemos do Brasil aos Estados Unidos, Europa, Arábia Saudita e Índia. E quando o projeto pede presença no Rio de Janeiro, atendemos pela parceria com a O2, usando a infraestrutura deles.",
-    "en": "Based in São Marcos, southern Brazil, with live remote sessions available worldwide — today we work with clients from Brazil to the United States, Europe, Saudi Arabia and India. And when a project calls for presence in Rio de Janeiro, we work through our partnership with O2, using their infrastructure.",
+    "pt": "Base em São Marcos, no Rio Grande do Sul, com atendimento remoto para qualquer lugar do mundo — hoje atendemos do Brasil aos Estados Unidos, Europa, Arábia Saudita e Índia. E quando o projeto pede presença no Rio de Janeiro, atendemos pela parceria com a O2, usando a infraestrutura deles.",
+    "en": "Based in São Marcos, southern Brazil, working remotely worldwide — today we work with clients from Brazil to the United States, Europe, Saudi Arabia and India. And when a project calls for presence in Rio de Janeiro, we work through our partnership with O2, using their infrastructure.",
 }
 
 REUNIAO = {
