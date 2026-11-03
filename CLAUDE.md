@@ -13,12 +13,11 @@ a partir da pasta `docs/`.
 |---|---|
 | `gerador/dados.py` | **Todo o conteúdo**: textos PT/EN, projetos, créditos, equipe, clientes, serviços, contatos. Mudança de texto começa aqui. |
 | `gerador/build.py` | Gera as páginas HTML em `docs/` a partir de `dados.py`. Textos de interface (menu, rótulos, títulos) ficam no dicionário `UI`. |
-| `gerador/imagens.py` | Processa imagens do `_resgate/`, de `Fotos Equipe/` e de `Logos Clientes/` para `docs/assets/img/`. |
+| `gerador/imagens.py` | Processa imagens de `_interno/resgate/`, de `Fotos Equipe/` e de `Logos Clientes/` para `docs/assets/img/`. |
 | `gerador/marca.py` | Gera logo, símbolo e favicon a partir dos arquivos oficiais de `Marca Vertigo/`. |
 | `docs/` | O site publicado. **O HTML é gerado — não editar à mão.** Exceção: `docs/assets/css/site.css` e `docs/assets/js/site.js` são fontes editadas diretamente. |
-| `_resgate/` | Backup completo do site antigo (Squarespace): imagens originais, textos, HTML. Não apagar. |
 | `Fotos Equipe/`, `Logos Clientes/` | Pastas de entrega de arquivos (cada uma tem um `LEIA-ME.txt`). |
-| `TODO.md` | Pendências combinadas. |
+| `_interno/` | **Repositório privado à parte** (`vertigocolor-interno`), ignorado por este: backup do site antigo em `resgate/`, pendências em `TODO.md` e materiais internos. Tudo que não deve ser público vai para lá. O `imagens.py` precisa dele: em um clone novo, clonar o privado nessa pasta. |
 
 ## Comandos
 
@@ -87,10 +86,10 @@ O `.claude/launch.json` não funciona: o macOS bloqueia o acesso do servidor de 
   placeholder com o símbolo da marca.
 - **Logos de clientes**: `Logos Clientes/<nome>.(png|jpg|svg)` → branco puro. Depois, incluir o
   nome em `CLIENTES_LOGOS` e `CLIENTES_ALT` (`dados.py`).
-- Imagens do resgate são chamadas pelo prefixo numérico do arquivo em `_resgate/imagens/`
+- Imagens do resgate são chamadas pelo prefixo numérico do arquivo em `_interno/resgate/imagens/`
   (ex.: `78` = `078_XAMA 07 CLIP 2.PNG`). Antes de atribuir uma imagem a um projeto, conferir
-  em `_resgate/imagens_por_pagina.txt` de qual página do site antigo ela veio — a home antiga
-  tinha imagens soltas, sem projeto.
+  em `_interno/resgate/imagens_por_pagina.txt` de qual página do site antigo ela veio — a home
+  antiga tinha imagens soltas, sem projeto.
 
 ## Verificação visual
 

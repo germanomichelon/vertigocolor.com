@@ -6,8 +6,11 @@ import glob
 from PIL import Image, ImageOps
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ORIG = os.path.join(RAIZ, "_resgate", "imagens")
+ORIG = os.path.join(RAIZ, "_interno", "resgate", "imagens")
 DEST = os.path.join(RAIZ, "docs", "assets", "img")
+
+if not os.path.isdir(ORIG):
+    raise SystemExit("Falta _interno/resgate/: clone o repositório privado vertigocolor-interno na pasta _interno/.")
 
 
 def acha(prefixo):
@@ -226,7 +229,7 @@ for i, nome in enumerate(LOGOS):
     l = Image.open(os.path.join(DEST, "logos", f"{nome}.png")).convert("RGBA")
     l.thumbnail((260, 120))
     sheet.paste(l, (20 + (i % 4) * 300, 20 + (i // 4) * 160), l)
-sheet.save(os.path.join(RAIZ, "_resgate", "verifica_logos.jpg"), quality=85)
+sheet.save(os.path.join(RAIZ, "_interno", "resgate", "verifica_logos.jpg"), quality=85)
 
 total = 0
 arqs = 0

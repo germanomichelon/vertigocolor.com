@@ -1,19 +1,14 @@
-# Vertigo Color — Site
+# Vertigo Color — site
 
-Novo site da **Vertigo Color** (vertigocolor.com), empresa de color grading de São Marcos/RS, Brasil.
+Código do site da **[Vertigo Color](https://vertigocolor.com)**, estúdio brasileiro de color grading para cinema, séries, publicidade e videoclipes, com base em São Marcos (RS) e sessões remotas ao vivo.
+
+**Site oficial:** [vertigocolor.com](https://vertigocolor.com) · [Versão em inglês](https://vertigocolor.com/en/index.html)
 
 ## Estrutura
 
-- `marca/` — Logos e identidade visual resgatados (branco p/ fundo preto, preto p/ fundo branco, avatar, favicon).
-- `_resgate/` — Backup completo do site antigo (Squarespace), feito em 31/08/2026:
-  - `imagens/` — todas as 233 imagens do site em resolução máxima (~200 MB);
-  - `textos/` — texto extraído de cada página;
-  - `html/` e `paginas/` — HTML bruto e JSON de cada página;
-  - `inventario.md` — índice de páginas, vídeos e imagens.
-- `site/` — o site novo (em construção).
+- `docs/` — o site publicado pelo GitHub Pages.
+- `gerador/` — scripts em Python que geram as páginas e as imagens; o conteúdo em português e inglês está em `gerador/dados.py`.
+- `Marca Vertigo/` — arquivos oficiais da marca.
+- `Fotos Equipe/`, `Logos Clientes/` — arquivos de entrada do gerador.
 
-## Diretrizes da marca
-
-- Cores: **preto puro (#000000) e branco puro (#FFFFFF)** — nenhuma outra cor.
-- Logo: silhueta do homem caindo + wordmark VERTIGO COLOR.
-- Site bilíngue: **português e inglês**, com pergunta de idioma na entrada.
+As convenções do projeto estão em [CLAUDE.md](CLAUDE.md).
