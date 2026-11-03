@@ -752,6 +752,8 @@ def main():
     escreve("sitemap.xml", sitemap()); n += 1
     escreve("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {DOMINIO}/sitemap.xml\n"); n += 1
     escreve("llms.txt", llms_txt()); n += 1
+    # Verificação do Google Search Console: não remover, senão o site perde a verificação.
+    escreve("google8b895d1fdcb6643c.html", "google-site-verification: google8b895d1fdcb6643c.html\n"); n += 1
     escreve("CNAME", "vertigocolor.com\n"); n += 1
     escreve(".nojekyll", ""); n += 1
 
