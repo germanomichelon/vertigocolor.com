@@ -23,7 +23,7 @@ UI = {
         "titulo_site": "Vertigo Color — Color grading e colorização para cinema, publicidade e música",
         "desc_site": "Estúdio brasileiro de color grading e colorização de filmes: cinema, séries, comerciais e videoclipes. Sessões remotas ao vivo para Brasil, Estados Unidos, Europa, Arábia Saudita e Índia. Nike, Mercedes-Benz, Michelin e Natura já passaram pela nossa cor.",
         "hero_h1": "Somos<br>cor.",
-        "hero_rotulo": "Color Grading · São Marcos, RS · Sessões remotas ao vivo",
+        "hero_rotulo": "Color Grading · São Marcos, RS · Atendimento remoto",
         "hero_sub": "Estúdio de color grading e colorização de filmes para cinema, publicidade e música — do Brasil para o mundo.",
         "hero_img": "herois/xama.jpg",
         "hero_credito": "Xamã · color pela Vertigo",
@@ -60,7 +60,7 @@ UI = {
         "titulo_site": "Vertigo Color — Color grading for film, advertising and music",
         "desc_site": "Brazilian color grading studio: films, series, commercials and music videos. Live remote sessions for Brazil, the United States, Europe, Saudi Arabia and India. Nike, Mercedes-Benz, Michelin and Natura have been through our color.",
         "hero_h1": "We are<br>color.",
-        "hero_rotulo": "Color Grading · São Marcos, Brazil · Live remote sessions",
+        "hero_rotulo": "Color Grading · São Marcos, Brazil · Working remotely worldwide",
         "hero_sub": "A color grading studio for film, advertising and music — from Brazil to the world.",
         "hero_img": "herois/deadmen.jpg",
         "hero_credito": "Violet Orlandi — Dead Men Walk Alone · color by Germano Michelon",
@@ -95,8 +95,8 @@ NOME_EQUIPE = {p["slug"]: p["nome"] for p in EQUIPE}
 
 ORG_ID = f"{DOMINIO}/#org"
 DESC_ESTUDIO = {
-    "pt": "Estúdio brasileiro de color grading e colorização de filmes para cinema, séries, publicidade e videoclipes, com sessões remotas ao vivo.",
-    "en": "Brazilian color grading studio for film, series, advertising and music videos, with live remote sessions.",
+    "pt": "Estúdio brasileiro de color grading e colorização de filmes para cinema, séries, publicidade e videoclipes, com atendimento remoto para o mundo todo.",
+    "en": "Brazilian color grading studio for film, series, advertising and music videos, working remotely worldwide.",
 }
 
 
