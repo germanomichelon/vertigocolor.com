@@ -9,6 +9,11 @@ ENDERECO = "Av. Venâncio Aires, 907 — São Marcos, RS — Brasil"
 INSTAGRAM = "https://www.instagram.com/germanomichelon/"
 YOUTUBE = "https://www.youtube.com/@GermanoMichelon"
 TIKTOK = "https://www.tiktok.com/@germanomichelon"
+REDES_GERMANO = [INSTAGRAM, YOUTUBE, TIKTOK,
+                 "https://www.threads.net/@germanomichelon",
+                 "https://medium.com/@germanomichelon",
+                 "https://germanomichelon.substack.com/",
+                 "https://creators.spotify.com/pod/profile/germano-michelon-santos/"]
 
 CATEGORIAS = {
     "clipe": {"pt": "Videoclipe", "en": "Music Video"},
@@ -19,16 +24,18 @@ CATEGORIAS = {
 EQUIPE = [
     {
         "slug": "germano",
+        "fundador": True,
         "nome": "Germano Michelon Santos",
         "cargo": {"pt": "Colorista sênior e fundador", "en": "Senior Colorist & Founder"},
         "foto": "equipe/germano.jpg",
         "bio": {
-            "pt": "Fundador da Vertigo Color, coloriu projetos para marcas como Nike, Mercedes-Benz, Michelin e Natura, além de videoclipes com milhões de visualizações. Atende do estúdio em São Marcos (RS) clientes do Brasil, dos Estados Unidos, da Europa, da Arábia Saudita e da Índia.",
-            "en": "Founder of Vertigo Color, Germano has graded work for brands like Nike, Mercedes-Benz, Michelin and Natura, plus music videos with millions of views. From the studio in southern Brazil he serves clients across Brazil, the United States, Europe, Saudi Arabia and India.",
+            "pt": "Fundador da Vertigo Color, estúdio pelo qual já passaram marcas como Nike, Mercedes-Benz, Michelin e Natura. Assina a cor de videoclipes de artistas como Violet Orlandi e Spektra. Atende do estúdio em São Marcos (RS) clientes do Brasil, dos Estados Unidos, da Europa, da Arábia Saudita e da Índia.",
+            "en": "Founder of Vertigo Color, the studio behind work for brands like Nike, Mercedes-Benz, Michelin and Natura. He has graded music videos for artists such as Violet Orlandi and Spektra. From the studio in southern Brazil he serves clients across Brazil, the United States, Europe, Saudi Arabia and India.",
         },
     },
     {
         "slug": "rafael-batista",
+        "fundador": True,
         "nome": "Rafael Pereira Batista",
         "cargo": {"pt": "Colorista sênior e fundador", "en": "Senior Colorist & Founder"},
         "foto": "equipe/rafael-batista.jpg",
@@ -78,6 +85,7 @@ PROJETOS = [
         "cat": "clipe",
         "colorista": "germano",
         "yt": "WIEzVr_BcgM",
+        "publicado": "2024-08-13T06:00:28-07:00",
         "desc": {
             "pt": "Videoclipe gótico da cantora Violet Orlandi: veludo vinho, figuras encapuzadas e uma paleta que abraça o barroco sem perder a pele.",
             "en": "A gothic music video for singer Violet Orlandi: wine-red velvet, hooded figures and a palette that embraces the baroque without losing the skin tones.",
@@ -95,6 +103,7 @@ PROJETOS = [
         "cat": "clipe",
         "colorista": "deisy",
         "yt": "WhgDK3wDsyc",
+        "publicado": "2022-11-29T07:00:10-08:00",
         "desc": {
             "pt": "Videoclipe do Xamã: couro preto, luz fria e contraste alto. Cor que sustenta a atitude do clipe do início ao fim.",
             "en": "A music video for Xamã: black leather, cold light and high contrast. Grading that carries the video's attitude from first frame to last.",
@@ -112,6 +121,7 @@ PROJETOS = [
         "cat": "institucional",
         "colorista": "germano",
         "vimeo": "939662059",
+        "publicado": "2024-04-26",
         "desc": {
             "pt": "Filme institucional no alto de um heliponto ao nascer do sol: luz dourada, céu limpo e uma cidade inteira acordando ao fundo.",
             "en": "An institutional film on a helipad at sunrise: golden light, clean skies and a whole city waking up in the background.",
@@ -129,6 +139,7 @@ PROJETOS = [
         "cat": "comercial",
         "colorista": "germano",
         "yt": "VGTqVr9rDbs",
+        "publicado": "2024-03-23T13:20:20-07:00",
         "desc": {
             "pt": "Comercial de produto para a marca Noug: tons de areia, packshots limpos e uma tabela de cor construída para dar apetite.",
             "en": "Product commercial for Noug: sand tones, clean packshots and a color pipeline built to make the product irresistible.",
@@ -146,6 +157,7 @@ PROJETOS = [
         "cat": "clipe",
         "colorista": "germano",
         "yt": "0ltQ3cdMEW8",
+        "publicado": "2024-02-11T07:00:10-08:00",
         "desc": {
             "pt": "Mashup de Taro com Blood, Milk and Sky para a Violet Orlandi. Floresta, sangue e luz dura — um clipe onde a cor faz o papel de figurino.",
             "en": "A mashup of Taro and Blood, Milk and Sky for Violet Orlandi. Forest, blood and hard light — a video where color plays the role of wardrobe.",
@@ -192,6 +204,7 @@ PROJETOS = [
         "cat": "clipe",
         "colorista": "germano",
         "yt": "gkt3VPsZLfE",
+        "publicado": "2024-07-12T06:00:06-07:00",
         "desc": {
             "pt": "Clipe em preto e branco para a banda Spektra. Sem cor para se esconder: aqui o trabalho é contraste, textura e densidade de prata.",
             "en": "A black-and-white music video for the band Spektra. Nowhere to hide without color: the work here is contrast, texture and silver density.",
@@ -226,6 +239,7 @@ PROJETOS = [
         "cat": "clipe",
         "colorista": "jana",
         "yt": "dyCRluZZCHs",
+        "publicado": "2024-03-03T06:51:29-08:00",
         "desc": {
             "pt": "Cover acústico de Call Me, da Blondie, em preto e branco de estúdio — grão fino e cinzas com personalidade.",
             "en": "An acoustic cover of Blondie's Call Me in studio black-and-white — fine grain and grays with personality.",
@@ -245,6 +259,7 @@ PROJETOS = [
         "cat": "clipe",
         "colorista": "jana",
         "yt": "cjxyjiDIGuY",
+        "publicado": "2024-02-25T10:00:08-08:00",
         "desc": {
             "pt": "Versão acústica em uma sala de outono: madeira, macieira e uma paleta quente de filme fotográfico.",
             "en": "An acoustic session in an autumn room: wood, an apple tree and a warm, film-stock palette.",
@@ -264,7 +279,7 @@ CLIENTES_LOGOS = ["nike", "mercedes", "michelin", "natura", "mounjaro", "rga",
 CLIENTES_ALT = {"nike": "Nike", "mercedes": "Mercedes-Benz", "michelin": "Michelin",
                 "natura": "Natura", "verizon": "Verizon", "chillibeans": "Chilli Beans",
                 "national": "National Geographic", "rga": "R/GA",
-                "mounjaro": "Mounjaro (tirzepatida) — Eli Lilly"}
+                "mounjaro": "Mounjaro"}
 
 NOMES_FAMOSOS = "Ana Hickmann · Pocah · Leonardo · Cleo Pires · Antonia Morais · Xamã"
 
@@ -321,7 +336,7 @@ SOBRE = {
     "en": [
         "Vertigo Color was born from a singular obsession with the cinematic image. When I first set out to elevate my own productions, the endless complexities of lighting, sound and camera gear felt overwhelming — but color grading immediately clicked. Encouraged by industry mentors like Filippo Cinotti, who proved that a dedicated career in color was possible, I went all-in and invested everything I had into mastering the craft.",
         "The turning point came when I joined forces with Rafael Pereira Batista, a business partner who brought over a decade of post-production experience — and the name Vertigo Color with him. By combining obsessive dedication with deeply rooted technical expertise, we built a post-production house entirely around the art and science of the grade.",
-        "Today, Vertigo stands as one of the most sought-after color grading studios in Brazil — with a global focus. We serve the United States, Europe, Saudi Arabia and India to the same standard, and operating from southern Brazil lets us offer those markets a massive advantage: world-class finishing at a highly competitive rate, with zero compromise on rigor.",
+        "Today, Vertigo stands as one of the most sought-after color grading studios in Brazil — with a global focus. We serve the United States, Europe, Saudi Arabia and India to the same standard, and operating from South America lets us offer those markets a massive advantage: world-class finishing at a highly competitive rate, with zero compromise on rigor.",
     ],
 }
 
@@ -355,4 +370,56 @@ REUNIAO = {
         "cta": "Message us on WhatsApp",
         "cta_sub": "A no-strings meeting, straight with Vertigo.",
     },
+}
+
+# Endereços do site antigo (Squarespace) que continuam circulando em e-mails e buscadores.
+# Caminho antigo -> (página em PT, página em EN, idioma principal). Vira uma página de
+# redirecionamento em docs/; quem clica vai para o idioma do navegador ou o já escolhido.
+_HOME = ("pt/index.html", "en/index.html", "pt")
+_ENTRADA = ("", "", "pt")
+_EQUIPE = ("pt/equipe.html", "en/team.html", "en")
+_REUNIAO = ("pt/reuniao.html", "en/meeting.html", "pt")
+
+
+def _projeto(slug):
+    return (f"pt/projetos/{slug}.html", f"en/projects/{slug}.html", "pt")
+
+
+REDIRECIONAMENTOS = {
+    "home": _ENTRADA,
+    "about-1": ("pt/sobre.html", "en/about.html", "en"),
+    "artists": _EQUIPE,
+    "contact": ("pt/contato.html", "en/contact.html", "en"),
+    "amarcarreunioes": _REUNIAO,
+    "amarcarreunioes-1": _REUNIAO,
+    "amarcarreunioes-2": ("pt/reuniao.html", "en/meeting.html", "en"),
+    "portflio-germano": _EQUIPE,
+    "portflio-germano/project-one-f5w4d-yx6tr": _projeto("taro-blood-milk-and-sky"),
+    "portflio-germano/noug-commercial": _projeto("noug"),
+    "portflio-germano/uceff": _projeto("uceff"),
+    "portflio-germano/my-voice-for-you-spektra": _projeto("my-voice-for-you"),
+    "portflio-germano/dead-men-walk-alone-violet-orlandi": _projeto("dead-men-walk-alone"),
+    "portflio-germano/cmercial-unisc": _projeto("unisc"),
+    "portflio-deisy": _EQUIPE,
+    "portflio-deisy/project-one-f5w4d-yta7g": _projeto("puto-de-luxo"),
+    "portflio-jana": _EQUIPE,
+    "portflio-jana/blondie-call-me-violet-orlandi-acoustic-cover": _projeto("call-me"),
+    "portflio-jana/metagenics": _projeto("metagenics"),
+    "portflio-jana/violet-orlandi-only-holy-water-acoustic": _projeto("only-holy-water"),
+    # Blog e curso saíram do site; quando existir o site de educação, apontar para lá.
+    "profissaocolorista": _HOME,
+    "cadastro-vivendo-de-color-grading": _HOME,
+    "newsletter": _HOME,
+    "blog": _HOME,
+    "blog/alm-da-letra-criando-videoclipes-que-ressonam-profundamente": _HOME,
+    "blog/como-ser-um-freelancer-bem-sucedido-mesmo-sendo-tmido": _HOME,
+    "blog/eleve-seu-preo-como-aumentar-o-valor-do-seu-trabalho-para-clientes-atuais": _HOME,
+    "blog/freelancer-voc-no-precisa-ser-o-melhor": _HOME,
+    "blog/fulano-consegue-fazer-por-menos": _HOME,
+    "blog/guia-prtico-para-coloristas-passo-a-passo-para-color-grading-de-projetos": _HOME,
+    "blog/kjzb6m6v30dki2kousczbb1l96oelf": _HOME,
+    "blog/o-conhecimento-que-todo-editor-de-vdeo-deveria-ter-e-normalmente-no-tem": _HOME,
+    "blog/o-seu-feed-est-te-deixando-pobre": _HOME,
+    "blog/quando-o-projeto-vai-ficando-maior-ao-longo-da-execuo-guia-para-freelancers": _HOME,
+    "blog/um-erro-sobre-dinheiro-que-muito-freelancer-comete": _HOME,
 }

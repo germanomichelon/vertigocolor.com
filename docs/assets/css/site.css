@@ -65,11 +65,12 @@ h1, h2, h3 { font-weight: 800; text-transform: uppercase; line-height: 0.95; let
 .miolo { max-width: 1360px; margin: 0 auto; }
 
 /* ---------- animação de entrada ---------- */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease); }
-.reveal.on { opacity: 1; transform: none; }
+/* só esconde quando o JavaScript está ativo: sem ele o conteúdo continua visível */
+.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease); }
+.js .reveal.on { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
   .marquee-track { animation: none !important; }
 }
 .sem-anim .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
@@ -193,6 +194,7 @@ h1, h2, h3 { font-weight: 800; text-transform: uppercase; line-height: 0.95; let
 .marquee:hover .marquee-track { animation-play-state: paused; }
 .marquee-track img { height: clamp(150px, 22vw, 240px); width: auto; border: 1px solid var(--b12); }
 @keyframes rolar { to { transform: translateX(-50%); } }
+.clientes .nomes-famosos { margin-top: 44px; }
 .nomes-famosos { text-align: center; margin-top: 26px; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--b50); }
 
 /* ---------- serviços ---------- */
@@ -336,6 +338,12 @@ h1, h2, h3 { font-weight: 800; text-transform: uppercase; line-height: 0.95; let
 .portao-opcao strong { font-size: clamp(1.7rem, 4.6vw, 3.6rem); font-weight: 850; font-stretch: 115%; text-transform: uppercase; line-height: 1; }
 .portao-opcao:hover { background: var(--branco); color: var(--preto); }
 .portao-opcao:hover .rotulo { color: rgba(0, 0, 0, 0.5); }
+.portao-descricao { border-top: 1px solid var(--b12); padding: 16px 20px; text-align: center; font-size: 0.8rem; line-height: 1.5; color: var(--b50); }
 
 /* ---------- página 404 ---------- */
 .pagina-central { min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 22px; padding: 20px; }
+
+/* ---------- link público do vídeo ---------- */
+.video-link { margin-top: 14px; text-align: right; font-size: 0.85rem; }
+.video-link a { color: var(--b70); border-bottom: 1px solid var(--b25); transition: color 0.2s, border-color 0.2s; }
+.video-link a:hover { color: var(--branco); border-color: var(--branco); }

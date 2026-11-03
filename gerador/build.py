@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """Gera o site estático da Vertigo Color em docs/ (PT + EN)."""
+import json
 import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from dados import (DOMINIO, WHATSAPP, WHATSAPP_FMT, EMAIL, ENDERECO, INSTAGRAM,
-                   YOUTUBE, TIKTOK, CATEGORIAS, EQUIPE, PROJETOS, CLIENTES_LOGOS,
+                   YOUTUBE, TIKTOK, REDES_GERMANO, REDIRECIONAMENTOS, CATEGORIAS, EQUIPE, PROJETOS, CLIENTES_LOGOS,
                    CLIENTES_ALT, NOMES_FAMOSOS, MOSAICO_N, DEPOIMENTOS, SERVICOS,
                    SOBRE, O2_TXT, REUNIAO)
 
@@ -19,10 +20,11 @@ UI = {
         "nav": [("index.html", "Home"), ("portfolio.html", "Portfólio"), ("equipe.html", "Equipe"),
                 ("sobre.html", "Sobre"), ("contato.html", "Contato")],
         "dir_proj": "projetos",
-        "titulo_site": "Vertigo Color — Color grading para cinema, publicidade e música",
-        "desc_site": "Estúdio brasileiro de color grading: filmes, séries, comerciais e videoclipes. Sessões remotas ao vivo para Brasil, Estados Unidos, Europa, Arábia Saudita e Índia. Nike, Mercedes-Benz, Michelin e Natura já passaram pela nossa cor.",
+        "titulo_site": "Vertigo Color — Color grading e colorização para cinema, publicidade e música",
+        "desc_site": "Estúdio brasileiro de color grading e colorização de filmes: cinema, séries, comerciais e videoclipes. Sessões remotas ao vivo para Brasil, Estados Unidos, Europa, Arábia Saudita e Índia. Nike, Mercedes-Benz, Michelin e Natura já passaram pela nossa cor.",
         "hero_h1": "Somos<br>cor.",
-        "hero_sub": "Estúdio de color grading para cinema, publicidade e música — do Brasil para o mundo.",
+        "hero_rotulo": "Color Grading · São Marcos, RS · Sessões remotas ao vivo",
+        "hero_sub": "Estúdio de color grading e colorização de filmes para cinema, publicidade e música — do Brasil para o mundo.",
         "hero_img": "herois/xama.jpg",
         "hero_credito": "Xamã · color pela Vertigo",
         "ver_portfolio": "Ver portfólio", "falar": "Chamar no WhatsApp",
@@ -37,6 +39,12 @@ UI = {
         "sobre_h1": "Sobre a Vertigo",
         "contato_h1": "Contato", "whatsapp": "WhatsApp", "endereco": "Endereço", "redes": "Redes",
         "contato_sub": "Atendemos remoto, com sessão ao vivo, para qualquer lugar do mundo — do Brasil aos Estados Unidos, Europa, Arábia Saudita e Índia.",
+        "titulo_portfolio": "Portfólio de color grading — Vertigo Color",
+        "titulo_equipe": "Equipe de coloristas — Vertigo Color",
+        "titulo_sobre": "Sobre a Vertigo Color, estúdio brasileiro de color grading",
+        "desc_sobre": "A Vertigo Color é um estúdio brasileiro de color grading fundado por Germano Michelon Santos e Rafael Pereira Batista, com base em São Marcos (RS) e sessões remotas ao vivo para clientes no Brasil e no exterior.",
+        "titulo_contato": "Contato — Vertigo Color, estúdio de color grading",
+        "titulo_projeto": "color grading por Vertigo Color", "ver_video": "Assistir no",
         "creditos": "Créditos", "stills": "Stills", "anterior": "Anterior", "proximo": "Próximo",
         "voltar": "← Voltar ao portfólio", "color_por": "Color por",
         "direitos": "Todos os direitos reservados.",
@@ -52,6 +60,7 @@ UI = {
         "titulo_site": "Vertigo Color — Color grading for film, advertising and music",
         "desc_site": "Brazilian color grading studio: films, series, commercials and music videos. Live remote sessions for Brazil, the United States, Europe, Saudi Arabia and India. Nike, Mercedes-Benz, Michelin and Natura have been through our color.",
         "hero_h1": "We are<br>color.",
+        "hero_rotulo": "Color Grading · São Marcos, Brazil · Live remote sessions",
         "hero_sub": "A color grading studio for film, advertising and music — from Brazil to the world.",
         "hero_img": "herois/deadmen.jpg",
         "hero_credito": "Violet Orlandi — Dead Men Walk Alone · color by Germano Michelon",
@@ -67,6 +76,12 @@ UI = {
         "sobre_h1": "About Vertigo",
         "contato_h1": "Contact", "whatsapp": "WhatsApp", "endereco": "Address", "redes": "Social",
         "contato_sub": "We work remotely, with live sessions, for clients anywhere in the world — from Brazil to the United States, Europe, Saudi Arabia and India.",
+        "titulo_portfolio": "Color grading portfolio — Vertigo Color",
+        "titulo_equipe": "Our colorists — Vertigo Color",
+        "titulo_sobre": "About Vertigo Color, a Brazilian color grading studio",
+        "desc_sobre": "Vertigo Color is a Brazilian color grading studio founded by Germano Michelon Santos and Rafael Pereira Batista, based in São Marcos, southern Brazil, with live remote sessions for clients in Brazil and abroad.",
+        "titulo_contato": "Contact — Vertigo Color, color grading studio",
+        "titulo_projeto": "color grading by Vertigo Color", "ver_video": "Watch on",
         "creditos": "Credits", "stills": "Stills", "anterior": "Previous", "proximo": "Next",
         "voltar": "← Back to the portfolio", "color_por": "Color by",
         "direitos": "All rights reserved.",
@@ -78,6 +93,88 @@ UI = {
 
 NOME_EQUIPE = {p["slug"]: p["nome"] for p in EQUIPE}
 
+ORG_ID = f"{DOMINIO}/#org"
+DESC_ESTUDIO = {
+    "pt": "Estúdio brasileiro de color grading e colorização de filmes para cinema, séries, publicidade e videoclipes, com sessões remotas ao vivo.",
+    "en": "Brazilian color grading studio for film, series, advertising and music videos, with live remote sessions.",
+}
+
+
+def ld_script(dados):
+    """Bloco de dados estruturados. Só pode afirmar o que está visível na página."""
+    texto = json.dumps(dados, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    return f'<script type="application/ld+json">{texto}</script>'
+
+
+def ld_pessoa(pe, lang):
+    dados = {"@type": "Person", "@id": f"{DOMINIO}/#{pe['slug']}", "name": pe["nome"],
+             "jobTitle": pe["cargo"][lang], "image": f"{DOMINIO}/assets/img/{pe['foto']}",
+             "worksFor": {"@id": ORG_ID}}
+    if pe["slug"] == "germano":
+        dados["sameAs"] = REDES_GERMANO
+    return dados
+
+
+def ld_org(lang):
+    servicos = [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": s[lang][0], "description": s[lang][1]}}
+                for s in SERVICOS]
+    return {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "@id": ORG_ID,
+        "name": "Vertigo Color",
+        "url": f"{DOMINIO}/",
+        "logo": f"{DOMINIO}/apple-touch-icon.png",
+        "image": f"{DOMINIO}/assets/img/herois/deadmen.jpg",
+        "description": DESC_ESTUDIO[lang],
+        "email": EMAIL,
+        "telephone": "+5554996799638",
+        "address": {"@type": "PostalAddress", "streetAddress": "Av. Venâncio Aires, 907",
+                    "addressLocality": "São Marcos", "addressRegion": "RS", "addressCountry": "BR"},
+        "areaServed": [{"@type": "Country", "name": "Brazil"}, {"@type": "Country", "name": "United States"},
+                       {"@type": "Place", "name": "Europe"}, {"@type": "Country", "name": "Saudi Arabia"},
+                       {"@type": "Country", "name": "India"}],
+        "founder": [ld_pessoa(p, lang) for p in EQUIPE if p.get("fundador")],
+        "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Color grading", "itemListElement": servicos},
+    }
+
+
+def ld_equipe(lang):
+    return {"@context": "https://schema.org",
+            "@graph": [dict(ld_pessoa(p, lang), description=p["bio"][lang]) for p in EQUIPE]}
+
+
+def nome_projeto(proj):
+    """Título sem repetir o cliente quando ele já está no título (ex.: Noug · Noug)."""
+    if proj["cliente"] in proj["titulo"]:
+        return proj["titulo"]
+    return f"{proj['titulo']} · {proj['cliente']}"
+
+
+def video_do_projeto(proj):
+    """(link público, link de incorporação, nome da plataforma), ou None se não houver vídeo."""
+    if proj.get("yt"):
+        return (f"https://www.youtube.com/watch?v={proj['yt']}", f"https://www.youtube.com/embed/{proj['yt']}", "YouTube")
+    if proj.get("vimeo"):
+        return (f"https://vimeo.com/{proj['vimeo']}", f"https://player.vimeo.com/video/{proj['vimeo']}", "Vimeo")
+    return None
+
+
+def ld_projeto(proj, lang):
+    capa = f"{DOMINIO}/assets/img/projetos/{proj['slug']}/capa.jpg"
+    dados = {"@context": "https://schema.org", "name": nome_projeto(proj).replace(" · ", " — "),
+             "description": proj["desc"][lang],
+             "contributor": [{"@type": "ProfessionalService", "@id": ORG_ID, "name": "Vertigo Color"},
+                             {"@type": "Person", "@id": f"{DOMINIO}/#{proj['colorista']}",
+                              "name": NOME_EQUIPE[proj["colorista"]]}]}
+    video = video_do_projeto(proj)
+    if video:
+        dados.update({"@type": "VideoObject", "url": video[0], "embedUrl": video[1],
+                      "thumbnailUrl": capa, "uploadDate": proj["publicado"]})
+    else:
+        dados.update({"@type": "CreativeWork", "image": capa})
+    return dados
+
 
 def caminho_pagina(lang, pagina, slug=None):
     """Caminho relativo à raiz de docs/ para uma página lógica."""
@@ -87,8 +184,9 @@ def caminho_pagina(lang, pagina, slug=None):
 
 
 def shell(lang, profundidade, titulo, desc, caminho, caminho_alt, og_img, corpo,
-          ativo=None, com_lightbox=False):
+          ativo=None, com_lightbox=False, ld=()):
     ui = UI[lang]
+    blocos_ld = "\n".join(ld_script(d) for d in ld)
     p = "../" * profundidade
     outro = ui["outro"]
     nav_itens = []
@@ -122,7 +220,9 @@ def shell(lang, profundidade, titulo, desc, caminho, caminho_alt, og_img, corpo,
 <link rel="icon" href="{p}favicon.ico">
 <link rel="apple-touch-icon" href="{p}apple-touch-icon.png">
 <link rel="preload" href="{p}assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="{p}assets/css/site.css">
+{blocos_ld}
 </head>
 <body>
 <header class="nav">
@@ -151,7 +251,7 @@ def shell(lang, profundidade, titulo, desc, caminho, caminho_alt, og_img, corpo,
     <a data-set-lang="{outro}" href="{p}{caminho_alt}">{'English version' if lang == 'pt' else 'Versão em português'}</a>
   </div>
 </footer>{lightbox}
-<script src="{p}assets/js/site.js"></script>
+<script src="{p}assets/js/site.js" onerror="document.documentElement.classList.remove('js')"></script>
 </body>
 </html>"""
 
@@ -175,9 +275,11 @@ def secao_clientes(lang, p):
     logos = "".join(
         f'<img src="{p}assets/img/logos/{l}.png" alt="{CLIENTES_ALT[l]}" loading="lazy">'
         for l in CLIENTES_LOGOS)
+    nomes = " · ".join(CLIENTES_ALT[l] for l in CLIENTES_LOGOS)
     return f"""<section class="secao clientes"><div class="miolo reveal">
   <p class="rotulo" style="text-align:center;margin-bottom:40px">{ui['clientes']}</p>
   <div class="clientes-grade">{logos}</div>
+  <p class="nomes-famosos">{nomes}</p>
 </div></section>"""
 
 
@@ -220,7 +322,7 @@ def pagina_home(lang):
 <section class="hero">
   <div class="hero-fundo"><img src="{p}assets/img/{ui['hero_img']}" alt="" fetchpriority="high"></div>
   <div class="hero-conteudo miolo">
-    <p class="rotulo">Color Grading · São Marcos RS · Rio de Janeiro</p>
+    <p class="rotulo">{ui['hero_rotulo']}</p>
     <h1 class="display">{ui['hero_h1']}</h1>
     <p class="hero-sub">{ui['hero_sub']}</p>
     <div class="linha-botoes">
@@ -260,7 +362,7 @@ def pagina_home(lang):
 {secao_cta(lang, p)}
 </main>"""
     return shell(lang, 1, ui["titulo_site"], ui["desc_site"], caminho, caminho_alt,
-                 ui["hero_img"], corpo, ativo="index.html")
+                 ui["hero_img"], corpo, ativo="index.html", ld=[ld_org(lang)])
 
 
 def pagina_portfolio(lang):
@@ -275,7 +377,7 @@ def pagina_portfolio(lang):
     filtros = f'<button class="filtro ativo" data-f="todos">{ui["todos"]}</button>' + "".join(
         f'<button class="filtro" data-f="{c}">{CATEGORIAS[c][lang]}</button>' for c in cats_presentes)
     cards = "".join(cartao(lang, pr, p, grande=(i == 0)) for i, pr in enumerate(PROJETOS))
-    titulo = f"{ui['portfolio_h1']} — Vertigo Color"
+    titulo = ui["titulo_portfolio"]
     desc = ("Filmes, comerciais e videoclipes colorizados pela Vertigo Color."
             if lang == "pt" else "Films, commercials and music videos graded by Vertigo Color.")
     corpo = f"""<main class="projeto-topo">
@@ -320,7 +422,12 @@ def pagina_projeto(lang, i):
 
     ant = PROJETOS[(i - 1) % len(PROJETOS)]
     prox = PROJETOS[(i + 1) % len(PROJETOS)]
-    titulo = f"{proj['titulo']} · {proj['cliente']} — Vertigo Color"
+    titulo = f"{nome_projeto(proj)}: {ui['titulo_projeto']}"
+    dados_video = video_do_projeto(proj)
+    link_video = ""
+    if dados_video:
+        link_video = (f'<p class="video-link reveal"><a href="{dados_video[0]}" target="_blank" rel="noopener">'
+                      f'{ui["ver_video"]} {dados_video[2]} ↗</a></p>')
     corpo = f"""<main class="projeto-topo">
 <section class="secao" style="padding-top:0;padding-bottom:40px"><div class="miolo">
   <p class="rotulo reveal">{cat} · {proj['cliente']}</p>
@@ -328,7 +435,7 @@ def pagina_projeto(lang, i):
   <div class="projeto-meta reveal"><span class="mudo">{ui['color_por']} <strong>{colorista}</strong></span></div>
   <p class="prosa reveal mudo" style="max-width:760px">{proj['desc'][lang]}</p>
 </div></section>
-<section style="padding:0 var(--pad)"><div class="miolo">{video}</div></section>
+<section style="padding:0 var(--pad)"><div class="miolo">{video}{link_video}</div></section>
 <section class="secao"><div class="miolo">
   <p class="rotulo reveal">{ui['creditos']}</p>
   <ul class="creditos reveal" style="margin-top:22px">{creditos}</ul>
@@ -346,7 +453,7 @@ def pagina_projeto(lang, i):
 </main>"""
     return shell(lang, 2, titulo, proj["desc"][lang], caminho, caminho_alt,
                  f"projetos/{proj['slug']}/capa.jpg", corpo, ativo="portfolio.html",
-                 com_lightbox=True)
+                 com_lightbox=True, ld=[ld_projeto(proj, lang)])
 
 
 def pagina_equipe(lang):
@@ -368,7 +475,7 @@ def pagina_equipe(lang):
   <p>{pe['bio'][lang]}</p>
   {bloco_links}
 </article>""")
-    titulo = f"{ui['equipe_h1']} — Vertigo Color"
+    titulo = ui["titulo_equipe"]
     corpo = f"""<main class="projeto-topo">
 <section class="secao" style="padding-top:0"><div class="miolo">
   <h1 class="display reveal">{ui['equipe_h1']}</h1>
@@ -378,7 +485,8 @@ def pagina_equipe(lang):
 {secao_cta(lang, p)}
 </main>"""
     return shell(lang, 1, titulo, ui["equipe_sub"], caminho, caminho_alt,
-                 "equipe/germano.jpg", corpo, ativo="equipe.html" if lang == "pt" else "team.html")
+                 "equipe/germano.jpg", corpo, ativo="equipe.html" if lang == "pt" else "team.html",
+                 ld=[ld_org(lang), ld_equipe(lang)])
 
 
 def pagina_sobre(lang):
@@ -387,8 +495,8 @@ def pagina_sobre(lang):
     caminho = caminho_pagina(lang, "sobre" if lang == "pt" else "about")
     caminho_alt = caminho_pagina(ui["outro"], "sobre" if ui["outro"] == "pt" else "about")
     paragrafos = "".join(f"<p>{t}</p>" for t in SOBRE[lang])
-    titulo = f"{ui['sobre_h1']} — Vertigo Color"
-    desc = SOBRE[lang][2][:155]
+    titulo = ui["titulo_sobre"]
+    desc = ui["desc_sobre"]
     corpo = f"""<main class="projeto-topo">
 <section class="secao" style="padding-top:0"><div class="miolo">
   <h1 class="display reveal" style="margin-bottom:44px">{ui['sobre_h1']}</h1>
@@ -406,7 +514,7 @@ def pagina_sobre(lang):
 {secao_cta(lang, p)}
 </main>"""
     return shell(lang, 1, titulo, desc, caminho, caminho_alt, "equipe/germano-sobre.jpg",
-                 corpo, ativo="sobre.html" if lang == "pt" else "about.html")
+                 corpo, ativo="sobre.html" if lang == "pt" else "about.html", ld=[ld_org(lang)])
 
 
 def pagina_contato(lang):
@@ -414,7 +522,7 @@ def pagina_contato(lang):
     p = "../"
     caminho = caminho_pagina(lang, "contato" if lang == "pt" else "contact")
     caminho_alt = caminho_pagina(ui["outro"], "contato" if ui["outro"] == "pt" else "contact")
-    titulo = f"{ui['contato_h1']} — Vertigo Color"
+    titulo = ui["titulo_contato"]
     corpo = f"""<main class="projeto-topo">
 <section class="secao contato-grande" style="padding-top:0"><div class="miolo">
   <h1 class="display reveal" style="margin-bottom:20px">{ui['contato_h1']}</h1>
@@ -432,7 +540,7 @@ def pagina_contato(lang):
 </main>"""
     return shell(lang, 1, titulo, ui["contato_sub"], caminho, caminho_alt,
                  "herois/xama.jpg" if lang == "pt" else "herois/deadmen.jpg",
-                 corpo, ativo="contato.html" if lang == "pt" else "contact.html")
+                 corpo, ativo="contato.html" if lang == "pt" else "contact.html", ld=[ld_org(lang)])
 
 
 def pagina_reuniao(lang):
@@ -463,13 +571,13 @@ def pagina_portao():
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vertigo Color</title>
-<meta name="description" content="Vertigo Color — estúdio brasileiro de color grading. Brazilian color grading studio.">
+<title>Vertigo Color — Estúdio de color grading · Color grading studio</title>
+<meta name="description" content="__DESC_PT__ __DESC_EN__">
 <link rel="canonical" href="__DOMINIO__/">
 <link rel="alternate" hreflang="pt-BR" href="__DOMINIO__/pt/index.html">
 <link rel="alternate" hreflang="en" href="__DOMINIO__/en/index.html">
 <link rel="alternate" hreflang="x-default" href="__DOMINIO__/">
-<meta property="og:title" content="Vertigo Color">
+<meta property="og:title" content="Vertigo Color — Estúdio de color grading · Color grading studio">
 <meta property="og:description" content="Color grading — do Brasil para o mundo / from Brazil to the world.">
 <meta property="og:image" content="__DOMINIO__/assets/img/herois/xama.jpg">
 <meta name="theme-color" content="#000000">
@@ -477,6 +585,7 @@ def pagina_portao():
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
+__LD__
 <script>
 try {
   var l = localStorage.getItem("vc-lang");
@@ -487,7 +596,7 @@ try {
 <body>
 <div class="portao">
   <div class="portao-topo">
-    <img class="logo" src="assets/img/marca/logo.png" alt="Vertigo Color">
+    <h1><img class="logo" src="assets/img/marca/logo.png" alt="Vertigo Color"></h1>
     <p class="portao-pergunta">Você é brasileiro? · Are you Brazilian?</p>
   </div>
   <div class="portao-opcoes">
@@ -500,10 +609,81 @@ try {
       <strong>English</strong>
     </a>
   </div>
+  <div class="portao-descricao">
+    <p lang="pt-BR">__DESC_PT__</p>
+    <p lang="en">__DESC_EN__</p>
+  </div>
 </div>
 </body>
 </html>"""
-    return corpo.replace("__DOMINIO__", DOMINIO)
+    ld = [{"@context": "https://schema.org", "@type": "WebSite", "@id": f"{DOMINIO}/#site", "name": "Vertigo Color",
+           "url": f"{DOMINIO}/", "inLanguage": ["pt-BR", "en"], "publisher": {"@id": ORG_ID}},
+          {"@context": "https://schema.org", "@type": "ProfessionalService", "@id": ORG_ID, "name": "Vertigo Color",
+           "url": f"{DOMINIO}/", "logo": f"{DOMINIO}/apple-touch-icon.png", "description": DESC_ESTUDIO["en"]}]
+    return (corpo.replace("__DOMINIO__", DOMINIO)
+            .replace("__DESC_PT__", DESC_ESTUDIO["pt"])
+            .replace("__DESC_EN__", DESC_ESTUDIO["en"])
+            .replace("__LD__", "\n".join(ld_script(d) for d in ld)))
+
+
+def pagina_redirecionamento(alvo_pt, alvo_en, principal):
+    """Endereço antigo -> página atual. O GitHub Pages não faz redirecionamento no servidor,
+    então vai em HTML; quem tem JavaScript cai no idioma já escolhido ou no do navegador."""
+    alvo = alvo_pt if principal == "pt" else alvo_en
+    escolha = ""
+    if alvo_pt != alvo_en:
+        escolha = f"""<script>
+(function () {{
+  var l = "";
+  try {{ l = localStorage.getItem("vc-lang") || ""; }} catch (e) {{}}
+  if (l !== "pt" && l !== "en") {{ l = (navigator.language || "").toLowerCase().indexOf("pt") === 0 ? "pt" : "en"; }}
+  location.replace(l === "pt" ? "/{alvo_pt}" : "/{alvo_en}");
+}})();
+</script>
+"""
+    return f"""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Vertigo Color</title>
+<link rel="canonical" href="{DOMINIO}/{alvo}">
+<meta http-equiv="refresh" content="0; url=/{alvo}">
+{escolha}<style>html{{background:#000;color:#fff;font-family:Helvetica,Arial,sans-serif}}a{{color:#fff}}</style>
+</head>
+<body>
+<p><a href="/{alvo_pt}">Esta página mudou de endereço.</a> · <a href="/{alvo_en}">This page has moved.</a></p>
+</body>
+</html>"""
+
+
+def llms_txt():
+    """Resumo do site para ferramentas de IA, gerado dos mesmos dados para não ficar defasado."""
+    def url(caminho):
+        return f"{DOMINIO}/{caminho}"
+    linhas = ["# Vertigo Color", "", f"> {DESC_ESTUDIO['en']}", "", DESC_ESTUDIO["pt"], "",
+              f"- Location: {ENDERECO}",
+              "- Markets served: Brazil, United States, Europe, Saudi Arabia and India",
+              f"- Clients include: {', '.join(CLIENTES_ALT[l] for l in CLIENTES_LOGOS)}",
+              "- Founders: " + ", ".join(p["nome"] for p in EQUIPE if p.get("fundador")),
+              f"- Contact: {EMAIL} · WhatsApp {WHATSAPP_FMT}", "",
+              "## English", "",
+              f"- [Home]({url('en/index.html')}): services, selected work and clients",
+              f"- [Portfolio]({url('en/portfolio.html')}): all projects",
+              f"- [Team]({url('en/team.html')}): colorists and founders",
+              f"- [About]({url('en/about.html')}): the studio's story and infrastructure",
+              f"- [Contact]({url('en/contact.html')})", "",
+              "## Português", "",
+              f"- [Início]({url('pt/index.html')}): serviços, trabalhos selecionados e clientes",
+              f"- [Portfólio]({url('pt/portfolio.html')}): todos os projetos",
+              f"- [Equipe]({url('pt/equipe.html')}): coloristas e fundadores",
+              f"- [Sobre]({url('pt/sobre.html')}): a história e a estrutura do estúdio",
+              f"- [Contato]({url('pt/contato.html')})", "",
+              "## Projects", ""]
+    for pr in PROJETOS:
+        cat = CATEGORIAS[pr["cat"]]["en"]
+        linhas.append(f"- [{nome_projeto(pr)}]({url(caminho_pagina('en', 'projeto', pr['slug']))}): "
+                      f"{cat}, color by {NOME_EQUIPE[pr['colorista']]}. {pr['desc']['en']}")
+    return "\n".join(linhas) + "\n"
 
 
 def pagina_404():
@@ -571,6 +751,7 @@ def main():
     escreve("404.html", pagina_404()); n += 1
     escreve("sitemap.xml", sitemap()); n += 1
     escreve("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {DOMINIO}/sitemap.xml\n"); n += 1
+    escreve("llms.txt", llms_txt()); n += 1
     escreve("CNAME", "vertigocolor.com\n"); n += 1
     escreve(".nojekyll", ""); n += 1
 
@@ -583,6 +764,9 @@ def main():
         escreve(caminho_pagina(lang, "reuniao" if lang == "pt" else "meeting"), pagina_reuniao(lang)); n += 1
         for i in range(len(PROJETOS)):
             escreve(caminho_pagina(lang, "projeto", PROJETOS[i]["slug"]), pagina_projeto(lang, i)); n += 1
+
+    for antigo, (alvo_pt, alvo_en, principal) in REDIRECIONAMENTOS.items():
+        escreve(f"{antigo}/index.html", pagina_redirecionamento(alvo_pt, alvo_en, principal)); n += 1
 
     print(f"OK — {n} arquivos gerados em docs/")
 

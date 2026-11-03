@@ -17,7 +17,9 @@
 <link rel="icon" href="../favicon.ico">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="../assets/css/site.css">
+
 </head>
 <body>
 <header class="nav">
@@ -74,6 +76,6 @@
     <a data-set-lang="en" href="../en/meeting.html">English version</a>
   </div>
 </footer>
-<script src="../assets/js/site.js"></script>
+<script src="../assets/js/site.js" onerror="document.documentElement.classList.remove('js')"></script>
 </body>
 </html>
