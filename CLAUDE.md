@@ -84,11 +84,14 @@ O `.claude/launch.json` não funciona: o macOS bloqueia o acesso do servidor de 
 - Dados estruturados (JSON-LD) saem de `build.py` (`ld_org`, `ld_equipe`, `ld_projeto`) e só podem
   afirmar o que está visível na página. Ao mudar endereço, equipe ou serviços, eles acompanham.
 - Marcas, nomes e créditos precisam aparecer **em texto**, não só dentro de imagens.
+- A nota do Google (`GOOGLE_NOTA` em `dados.py`) é atualizada à mão; conferir no perfil antes de mudar.
 - Em português, usar "color grading" e também "colorização de filmes": sozinha, "colorização"
   traz resultados de tintas.
 - `REDIRECIONAMENTOS` (`dados.py`) gera uma página em `docs/<endereço antigo>/index.html` para cada
   URL do site antigo, porque o GitHub Pages não redireciona no servidor. Não remover: esses links
   estão em e-mails já enviados.
+- O Google Search Console é verificado pelo arquivo `docs/google8b895d1fdcb6643c.html`, gerado pelo
+  `build.py`. Não remover.
 - `docs/llms.txt` é gerado pelo `build.py`. O Google não o usa; ele existe só porque não custa nada.
 - Não criar páginas em massa por cidade ou variação de termo: o Google trata isso como spam.
 - Preferir fato verificável a adjetivo. IA repete o que está escrito, inclusive o que está errado.

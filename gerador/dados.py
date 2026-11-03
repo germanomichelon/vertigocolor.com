@@ -14,6 +14,9 @@ REDES_GERMANO = [INSTAGRAM, YOUTUBE, TIKTOK,
                  "https://medium.com/@germanomichelon",
                  "https://germanomichelon.substack.com/",
                  "https://creators.spotify.com/pod/profile/germano-michelon-santos/"]
+# Ficha pública no Google. Nota e número de avaliações conferidos em 03/11/2026: atualizar à mão.
+GOOGLE_PERFIL = "https://www.google.com/maps?cid=1024686640801054637"
+GOOGLE_NOTA = {"pt": "5,0 no Google · 16 avaliações", "en": "5.0 on Google · 16 reviews"}
 
 CATEGORIAS = {
     "clipe": {"pt": "Videoclipe", "en": "Music Video"},

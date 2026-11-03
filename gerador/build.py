@@ -7,7 +7,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from dados import (DOMINIO, WHATSAPP, WHATSAPP_FMT, EMAIL, ENDERECO, INSTAGRAM,
-                   YOUTUBE, TIKTOK, REDES_GERMANO, REDIRECIONAMENTOS, CATEGORIAS, EQUIPE, PROJETOS, CLIENTES_LOGOS,
+                   YOUTUBE, TIKTOK, REDES_GERMANO, GOOGLE_PERFIL, GOOGLE_NOTA, REDIRECIONAMENTOS, CATEGORIAS, EQUIPE, PROJETOS, CLIENTES_LOGOS,
                    CLIENTES_ALT, NOMES_FAMOSOS, MOSAICO_N, DEPOIMENTOS, SERVICOS,
                    SOBRE, O2_TXT, REUNIAO)
 
@@ -134,6 +134,8 @@ def ld_org(lang):
         "areaServed": [{"@type": "Country", "name": "Brazil"}, {"@type": "Country", "name": "United States"},
                        {"@type": "Place", "name": "Europe"}, {"@type": "Country", "name": "Saudi Arabia"},
                        {"@type": "Country", "name": "India"}],
+        "hasMap": GOOGLE_PERFIL,
+        "sameAs": [GOOGLE_PERFIL],
         "founder": [ld_pessoa(p, lang) for p in EQUIPE if p.get("fundador")],
         "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Color grading", "itemListElement": servicos},
     }
@@ -291,7 +293,7 @@ def secao_depoimentos(lang, branca=True):
   </figure>""" for d in DEPOIMENTOS)
     cls = "secao faixa-branca" if branca else "secao"
     return f"""<section class="{cls}"><div class="miolo">
-  <p class="rotulo reveal">{ui['depoimentos']}</p>
+  <p class="rotulo reveal">{ui['depoimentos']} · <a href="{GOOGLE_PERFIL}" target="_blank" rel="noopener">{GOOGLE_NOTA[lang]} ↗</a></p>
   <div class="depos" style="margin-top:36px">{itens}</div>
 </div></section>"""
 
