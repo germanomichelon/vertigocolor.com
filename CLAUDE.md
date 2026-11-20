@@ -104,7 +104,8 @@ O `.claude/launch.json` não funciona: o macOS bloqueia o acesso do servidor de 
 
 - **Fotos da equipe**: `Fotos Equipe/<slug>.(jpg|png|heic)` → corte 4:5 enquadrando pelo topo e
   conversão para P&B. Fotos que já chegam em P&B não recebem autocontraste. Sem foto, entra um
-  placeholder com o símbolo da marca.
+  placeholder com o símbolo da marca. O retrato do Gê usa o corte colado no topo (`viés_topo=0`
+  em `imagens.py`); com o padrão, a testa sai cortada.
 - **Logos de clientes**: `Logos Clientes/<nome>.(png|jpg|svg)` → branco puro. Depois, incluir o
   nome em `CLIENTES_LOGOS` e `CLIENTES_ALT` (`dados.py`).
 - Imagens do resgate são chamadas pelo prefixo numérico do arquivo em `_interno/resgate/imagens/`

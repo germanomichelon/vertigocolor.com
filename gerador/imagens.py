@@ -189,7 +189,7 @@ def placeholder(largura=1000):
     return base.convert("RGB")
 
 
-def retrato(nome, prefixo_resgate, largura=1000):
+def retrato(nome, prefixo_resgate, largura=1000, viés_topo=0.38):
     """Gera o retrato P&B da equipe, preferindo a foto nova."""
     novo = foto_nova(nome)
     if novo:
@@ -202,13 +202,14 @@ def retrato(nome, prefixo_resgate, largura=1000):
         im = Image.open(acha(prefixo_resgate))
         origem = "resgate do site antigo"
     im = ImageOps.exif_transpose(im)
-    im = corta_retrato(im)
+    im = corta_retrato(im, viés_topo=viés_topo)
     tam = salva_jpg(im, os.path.join(DEST, f"equipe/{nome}.jpg"), largura, 84, pb=True)
     print(f"  equipe/{nome}.jpg: {tam[0]}x{tam[1]}  ({origem})")
 
 
 print("Retratos da equipe:")
-retrato("germano", 96)
+# a foto do Gê tem pouco espaço acima da cabeça: o corte fica colado no topo, senão corta a testa
+retrato("germano", 96, viés_topo=0)
 retrato("rafael-batista", None)   # foto ainda não entregue
 retrato("rafael", 54)
 retrato("deisy", 212)
